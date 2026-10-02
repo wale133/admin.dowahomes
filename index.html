@@ -1,0 +1,1147 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DOWA Homes Admin Demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f3ef;color:#1d1c19;font:13px Arial,sans-serif}.app{display:none;min-height:100vh}.app.admin-unlocked{display:flex}.side{width:245px;background:#171716;color:#fff;position:fixed;inset:0 auto 0 0;padding:22px 16px}.brand{display:flex;gap:10px;align-items:center;padding:0 8px 26px}.logo{width:38px;height:38px;background:#fff;color:#171716;border-radius:11px;display:grid;place-items:center;font-weight:800}.brand small{display:block;color:#99958d;font-size:10px;margin-top:2px}.label{font-size:9px;color:#77746d;letter-spacing:.14em;text-transform:uppercase;padding:12px 10px 7px}.nav button{display:block;width:100%;border:0;background:none;color:#bdb9b1;text-align:left;padding:11px 12px;border-radius:9px;margin:3px 0}.nav button.active,.nav button:hover{background:#2b2b28;color:#fff}.badge{float:right;background:#8e4b45;border-radius:20px;padding:2px 6px;font-size:8px}.user{position:absolute;bottom:18px;left:20px;right:20px;border-top:1px solid #2d2d2a;padding-top:13px;display:flex;gap:9px}.avatar{width:36px;height:36px;border-radius:50%;background:#d8d0c4;color:#282621;display:grid;place-items:center;font-weight:bold;font-size:11px}.main{margin-left:245px;flex:1}.top{height:72px;background:#fffdf9;border-bottom:1px solid #e5e0d7;display:flex;justify-content:space-between;align-items:center;padding:0 30px}.content{padding:28px;max-width:1450px;margin:auto}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#77736b;margin-bottom:7px}h1{margin:0;font-size:29px;letter-spacing:-.04em}.sub{color:#77736b;font-size:12px;margin:8px 0 0}.btn{padding:10px 13px;border:1px solid #e1dbd1;background:#fffdf9;border-radius:9px}.dark{background:#171716;color:#fff}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}.card,.panel{background:#fffdf9;border:1px solid #e5e0d7;border-radius:14px}.card{padding:16px}.metric{font-size:23px;font-weight:bold;margin:8px 0 3px}.muted{font-size:10px;color:#77736b}.green{color:#416852;font-size:9px}.grid{display:grid;grid-template-columns:1.5fr .9fr;gap:15px;margin-top:15px}.ph{padding:15px 17px;border-bottom:1px solid #e5e0d7;display:flex;justify-content:space-between}.ph h2{font-size:13px;margin:0}.chart{height:190px;margin:18px;display:flex;align-items:end;gap:13px;border-bottom:1px solid #ddd7ce}.bar{flex:1;background:#c7bfb4;border-radius:5px 5px 0 0}.bar:last-child{background:#292824}.funnel{padding:18px}.frow{display:flex;align-items:center;gap:9px;margin:15px 0}.frow label{width:70px;color:#77736b;font-size:10px}.track{height:11px;background:#ece8e1;border-radius:20px;flex:1}.fill{height:100%;background:#68665f;border-radius:20px}.num{width:40px;text-align:right;font-size:10px;font-weight:bold}.lower{display:grid;grid-template-columns:1.5fr 1fr;gap:15px;margin-top:15px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px 15px;border-bottom:1px solid #e5e0d7;text-align:left;font-size:10px;white-space:nowrap}.table th{font-size:8px;color:#958f87;text-transform:uppercase}.status{padding:5px 8px;border-radius:20px;font-size:8px}.amber{background:#f3eadb;color:#8a642f}.greenbg{background:#e6eee9;color:#41634f}.blue{background:#e7edf3;color:#4a6077}.staff{padding:7px 16px}.staffrow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #e5e0d7}.staffleft{display:flex;gap:9px;align-items:center}.role{font-size:8px;color:#77736b;margin-top:2px}.page{display:none}.page.active{display:block}.demo-note{background:#eeeae2;border:1px solid #dfd9cf;padding:10px 13px;border-radius:9px;font-size:10px;color:#6d685f;margin-bottom:16px}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}.grid,.lower{grid-template-columns:1fr}}@media(max-width:680px){.side{display:none}.main{margin-left:0}.content{padding:18px 12px}.head{display:block}.head .btn{margin-top:12px}.cards{grid-template-columns:1fr 1fr}.tablewrap{overflow:auto}.table{min-width:700px}}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.48);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000}.modal-overlay.show{display:flex}.modal-box{width:min(620px,100%);max-height:90vh;overflow:auto;background:#fffdf9;border-radius:16px;border:1px solid #e5e0d7;box-shadow:0 20px 60px rgba(0,0,0,.2);padding:22px}.modal-box h2{margin:0 0 6px;font-size:20px}.modal-box p{color:#77736b;font-size:11px;line-height:1.6}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px;margin-top:12px}.field.full{grid-column:1/-1}.field label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#77736b}.field input,.field select,.field textarea{width:100%;border:1px solid #ded8cf;background:#fff;padding:11px;border-radius:8px;font:12px Arial}.field textarea{min-height:90px;resize:vertical}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.action-btn{border:1px solid #ded8cf;background:#fffdf9;border-radius:7px;padding:7px 9px;font-size:9px;cursor:pointer}.action-btn.dark{background:#171716;color:#fff}.clickable{cursor:pointer}.toast{position:fixed;right:22px;bottom:22px;background:#171716;color:#fff;padding:12px 15px;border-radius:10px;font-size:11px;z-index:1200;opacity:0;transform:translateY(10px);transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.search-input{border:1px solid #ded8cf;border-radius:8px;padding:9px 10px;background:#fffdf9;font-size:11px}.danger{color:#914b45!important}.source-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.source-grid>div{border:1px solid #e5e0d7;border-radius:10px;padding:13px;background:#fff}.source-grid b{display:block;font-size:11px}.source-grid span{display:block;color:#77736b;font-size:9px;margin-top:6px}.image-preview{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.image-preview img{width:82px;height:72px;object-fit:cover;border-radius:8px;border:1px solid #ded8cf;background:#f2eee8}.size-picker{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}.size-chip{display:flex!important;flex-direction:row!important;align-items:center;gap:6px;border:1px solid #ded8cf;background:#fff;padding:8px 10px;border-radius:8px;font-size:10px!important;text-transform:none!important;letter-spacing:0!important;color:#1d1c19!important;cursor:pointer}.size-chip input{width:auto!important}.size-chip:has(input:checked){background:#171716;color:#fff!important;border-color:#171716}.size-chip:has(input:checked) span{color:#fff}
+@media(max-width:900px){.source-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.modal-box{padding:16px}}
+
+/* ADMIN AUTH GATE */
+#adminAuthGate{position:fixed;inset:0;background:#f5f3ef;display:flex;align-items:center;justify-content:center;padding:20px;z-index:5000}
+#adminAuthGate.hidden{display:none}
+.admin-auth-card{width:min(430px,100%);background:#fffdf9;border:1px solid #e5e0d7;border-radius:16px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.admin-auth-card h1{font-size:27px;margin:0 0 7px}.admin-auth-card p{color:#77736b;font-size:12px;line-height:1.6;margin:0 0 22px}
+.admin-auth-field{display:flex;flex-direction:column;gap:6px;margin-top:13px}.admin-auth-field label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#77736b}.admin-auth-field input{width:100%;border:1px solid #ded8cf;background:#fff;padding:12px;border-radius:8px;font:12px Arial}
+.admin-auth-error{display:none;background:#f4e4e1;color:#914b45;border:1px solid #e4c8c3;padding:10px;border-radius:8px;font-size:10px;margin-top:14px}.admin-auth-error.show{display:block}
+.admin-auth-submit{width:100%;margin-top:18px}
+.admin-auth-status{font-size:10px;color:#77736b;margin-top:12px;text-align:center;min-height:14px}
+</style></head>
+<body>
+<div id="adminAuthGate">
+  <div class="admin-auth-card">
+    <div class="eyebrow">DOWA Homes · Secure Admin</div>
+    <h1>CEO Control Center</h1>
+    <p>Sign in with your authorized DOWA staff account to access the dashboard.</p>
+    <form id="adminLoginForm" onsubmit="adminLogin(event)">
+      <div class="admin-auth-field"><label>Email</label><input id="adminEmail" type="email" autocomplete="username" required></div>
+      <div class="admin-auth-field"><label>Password</label><input id="adminPassword" type="password" autocomplete="current-password" required></div>
+      <div id="adminAuthError" class="admin-auth-error"></div>
+      <button class="btn dark admin-auth-submit" type="submit">Sign in to Admin</button>
+      <div id="adminAuthStatus" class="admin-auth-status"></div>
+    </form>
+  </div>
+</div>
+<div class="app">
+<aside class="side"><div class="brand"><div class="logo">D</div><div><b>DOWA Homes</b><small>CEO Control Center</small></div></div>
+<div class="label">Overview</div><div class="nav">
+<button class="active" onclick="show('dashboard',this)">⌂ &nbsp; Dashboard</button>
+<button onclick="show('orders',this)">▣ &nbsp; Orders <span class="badge">8</span></button>
+<button onclick="show('products',this)">◇ &nbsp; Products & Inventory</button>
+<button onclick="show('customers',this)">♙ &nbsp; Customers</button><button onclick="show('tasks',this)">✓ &nbsp; Tasks</button>
+<button onclick="show('support',this)">◌ &nbsp; Support & Enquiries <span class="badge">14</span></button>
+<button onclick="show('team',this)">♧ &nbsp; Team</button>
+<button onclick="show('analytics',this)">▥ &nbsp; Analytics & Reports</button><button onclick="show('acquisition',this)">⌁ &nbsp; Customer Acquisition</button></div>
+<div class="label">Management</div><div class="nav">
+<button onclick="show('payments',this)">₦ &nbsp; Payments</button><button onclick="show('reviews',this)">☆ &nbsp; Reviews</button><button onclick="show('settings',this)">⚙ &nbsp; Settings</button></div>
+<div class="user"><div class="avatar">WO</div><div><b style="font-size:11px">Wale Olajide</b><small style="display:block;color:#8e8a82;font-size:8px">CEO · Super Admin</small></div></div></aside>
+<main class="main"><header class="top"><span class="muted"><b style="color:#1d1c19">DOWA Homes</b> / <span id="crumb">Dashboard</span></span><span style="display:flex;gap:9px;align-items:center"><button class="notification-bell-admin" onclick="openAdminNotifications()" title="Notifications" aria-label="Notifications">🔔<span class="notification-badge-admin" id="adminNotificationBadge">0</span></button><button class="action-btn" onclick="openRoleSwitcher()">Preview role</button><span class="avatar">WO</span><b style="font-size:10px">Wale</b></span></header>
+<section class="content">
+<div id="dashboard" class="page active"><div class="demo-note">DEMO MODE — These figures are sample data to show how the real dashboard will look after Supabase and analytics are connected.</div>
+<div class="head"><div><div class="eyebrow">CEO control center · September 2026</div><h1>Good afternoon, Wale.</h1><p class="sub">Your complete overview of DOWA Homes.</p></div><div><button class="btn" onclick="exportReport()">Export report</button> <button class="btn dark" onclick="showSection('tasks')">View tasks</button></div></div>
+<div class="cards"><div class="card"><span class="muted">Website visitors</span><div class="metric">4,820</div><span class="green">↑ 18.4% vs August</span></div><div class="card"><span class="muted">Enquiries</span><div class="metric">246</div><span class="green">↑ 12.8% vs August</span></div><div class="card"><span class="muted">Orders</span><div class="metric">72</div><span class="green">↑ 9.1% vs August</span></div><div class="card"><span class="muted">Customers</span><div class="metric">386</div><span class="green">94 new this month</span></div><div class="card"><span class="muted">Revenue</span><div class="metric">₦28.4M</div><span class="green">↑ 16.7% vs August</span></div></div>
+<div class="grid"><div class="panel"><div class="ph"><h2>Website visitors</h2><span class="muted">Last 6 months</span></div><div class="chart"><div class="bar" style="height:35%"></div><div class="bar" style="height:44%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:63%"></div><div class="bar" style="height:76%"></div><div class="bar" style="height:92%"></div></div><div style="display:flex;justify-content:space-around;color:#928d84;font-size:9px;padding:0 10px 14px"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></div>
+<div class="panel"><div class="ph"><h2>Customer journey</h2><span class="muted">This month</span></div><div class="funnel"><div class="frow"><label>Visitors</label><div class="track"><div class="fill" style="width:100%"></div></div><div class="num">4,820</div></div><div class="frow"><label>Enquiries</label><div class="track"><div class="fill" style="width:61%"></div></div><div class="num">246</div></div><div class="frow"><label>Add to cart</label><div class="track"><div class="fill" style="width:48%"></div></div><div class="num">180</div></div><div class="frow"><label>Checkout</label><div class="track"><div class="fill" style="width:31%"></div></div><div class="num">82</div></div><div class="frow"><label>Orders</label><div class="track"><div class="fill" style="width:24%"></div></div><div class="num">72</div></div></div></div></div>
+<div class="lower"><div class="panel"><div class="ph"><h2>Recent orders</h2><button class="action-btn" onclick="showSection('orders')">View all →</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th><th>Assigned</th></tr></thead><tbody><tr><td>DOWA-10492</td><td>Jane Doe</td><td>₦850,000</td><td><span class="status amber">Processing</span></td><td>Michael</td><td><button class="action-btn" onclick="openOrderModal('DOWA-10492')">View</button></td></tr><tr><td>DOWA-10491</td><td>John Ade</td><td>₦490,000</td><td><span class="status greenbg">Confirmed</span></td><td>Sarah</td></tr><tr><td>DOWA-10490</td><td>Amaka Obi</td><td>₦720,000</td><td><span class="status blue">Out for delivery</span></td><td>Michael</td></tr></tbody></table></div></div>
+<div class="panel"><div class="ph"><h2>Team activity</h2><span class="muted">Today</span></div><div class="staff"><div class="staffrow"><div class="staffleft"><div class="avatar">AD</div><div><b style="font-size:10px">Adam</b><div class="role">Customer Service</div></div></div><b>12 <small class="muted">open</small></b></div><div class="staffrow"><div class="staffleft"><div class="avatar">SA</div><div><b style="font-size:10px">Sarah</b><div class="role">Customer Service</div></div></div><b>8 <small class="muted">open</small></b></div><div class="staffrow"><div class="staffleft"><div class="avatar">DA</div><div><b style="font-size:10px">David</b><div class="role">Inventory Manager</div></div></div><b>4 <small class="muted">tasks</small></b></div><div class="staffrow"><div class="staffleft"><div class="avatar">MI</div><div><b style="font-size:10px">Michael</b><div class="role">Order Manager</div></div></div><b>7 <small class="muted">orders</small></div></div></div></div></div>
+<div id="orders" class="page">
+<div class="demo-note">CONNECTED MODE — Orders are read from Supabase. Payment gateway connection will be added later; this page manages the real order records and status.</div>
+<div class="head"><div><h1>Orders</h1><p class="sub" id="orderSummary">Loading orders...</p></div><div><button class="btn" onclick="loadAdminOrders()">↻ Refresh</button></div></div>
+<div class="panel" style="margin-top:18px"><div class="ph"><h2>Customer Orders</h2><span id="orderCount">0</span></div>
+<div class="tablewrap"><table class="table"><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th><th>Action</th></tr></thead>
+<tbody id="adminOrdersBody"><tr><td colspan="7">Loading...</td></tr></tbody></table></div></div>
+</div>
+<div id="products" class="page">
+<div class="demo-note">CONNECTED MODE — Product information, variants and inventory are read from Supabase. Product image files will be sent to Cloudflare R2 through the secure upload endpoint in the next backend step.</div>
+<h1>Products & Inventory</h1>
+<p class="sub" id="productSummary">Loading products...</p>
+<div class="panel" style="margin-top:18px">
+<div class="ph"><h2>Inventory</h2><button class="btn dark" onclick="openProductModal()">＋ Add product</button></div>
+<div class="tablewrap"><table class="table"><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Action</th></tr></thead>
+<tbody id="adminProductsBody"><tr><td colspan="6">Loading...</td></tr></tbody></table></div>
+</div></div>
+<div id="customers" class="page"><div class="demo-note">DEMO PAGE — Customer profiles, contact details, order history and activity will appear here.</div><h1>Customers</h1><p class="sub">386 customers · 94 new this month · 23 returning</p><div class="panel" style="margin-top:18px"><div class="ph"><h2>Customer directory</h2><input class="search-input" placeholder="Search customers..." oninput="filterCustomers(this.value)"></div><table class="table"><thead><tr><th>Customer</th><th>Email</th><th>Orders</th><th>Spent</th><th>Last active</th></tr></thead><tbody><tr><td>Jane Doe</td><td>jane@example.com</td><td>3</td><td>₦1.62M</td><td>Today</td></tr><tr><td>John Ade</td><td>john@example.com</td><td>1</td><td>₦490K</td><td>Yesterday</td></tr></tbody></table></div><div class="panel" style="margin-top:15px"><div class="ph"><h2>Where customers came from</h2><span class="muted">September 2026</span></div><div style="padding:17px"><div class="source-grid"><div><b>Instagram</b><span>118 customers · 30.6%</span></div><div><b>Google</b><span>82 customers · 21.2%</span></div><div><b>WhatsApp</b><span>61 customers · 15.8%</span></div><div><b>TikTok</b><span>43 customers · 11.1%</span></div><div><b>Referral</b><span>39 customers · 10.1%</span></div><div><b>Facebook</b><span>24 customers · 6.2%</span></div><div><b>Direct</b><span>19 customers · 4.9%</span></div></div></div></div></div>
+<div id="support" class="page"><div class="demo-note">CONNECTED MODE — Customer support conversations and messages are read directly from Supabase.</div><h1>Support & Enquiries</h1><p class="sub" id="supportSummary">Loading support conversations...</p><div class="panel" style="margin-top:18px"><div class="ph"><h2>Support inbox</h2><button class="action-btn" onclick="loadAdminSupport()">↻ Refresh</button></div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:0 0 14px"><input id="supportSearch" type="search" placeholder="Search customer, email or subject..." oninput="filterAdminSupport()" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #ded9d0;border-radius:4px;font:inherit;background:#fff"><select id="supportStatusFilter" onchange="filterAdminSupport()" style="padding:10px 12px;border:1px solid #ded9d0;border-radius:4px;background:#fff;font:inherit"><option value="all">All statuses</option><option value="New Message">New Message</option><option value="Read — Awaiting Reply">Read — Awaiting Reply</option><option value="Replied">Replied</option><option value="Resolved">Resolved</option></select></div><div class="tablewrap"><table class="table"><thead><tr><th>Customer</th><th>Subject</th><th>Status</th><th>Last message</th><th>Action</th></tr></thead><tbody id="adminSupportBody"><tr><td colspan="5">Loading...</td></tr></tbody></table></div></div></div>
+<div id="team" class="page"><div class="demo-note">DEMO PAGE — This is where the CEO creates staff accounts, assigns roles/permissions and assigns work.</div><h1>Team</h1><p class="sub">4 active staff members</p><div class="panel" style="margin-top:18px"><div class="ph"><h2>Team members</h2><button class="btn dark" onclick="openTeamModal()">＋ Add team member</button></div><div class="staff"><div class="staffrow"><div class="staffleft"><div class="avatar">AD</div><div><b>Adam</b><div class="role">Customer Service · 12 enquiries</div></div></div><span class="status greenbg">Active</span></div><div class="staffrow"><div class="staffleft"><div class="avatar">SA</div><div><b>Sarah</b><div class="role">Customer Service · 8 enquiries</div></div></div><span class="status greenbg">Active</span></div><div class="staffrow"><div class="staffleft"><div class="avatar">DA</div><div><b>David</b><div class="role">Inventory Manager · 4 tasks</div></div></div><span class="status greenbg">Active</span></div></div></div></div>
+<div id="analytics" class="page"><div class="demo-note">DEMO PAGE — Monthly analytics will combine website traffic, enquiries, customers, carts, checkout, orders and revenue.</div><h1>Analytics & Reports</h1><p class="sub">September 2026</p><div class="cards" style="margin-top:18px"><div class="card"><span class="muted">Visitors</span><div class="metric">4,820</div></div><div class="card"><span class="muted">Enquiries</span><div class="metric">246</div></div><div class="card"><span class="muted">Orders</span><div class="metric">72</div></div><div class="card"><span class="muted">Revenue</span><div class="metric">₦28.4M</div></div></div></div>
+<div id="payments" class="page"><div class="head"><div><h1>Payments</h1><p class="sub">₦28.4M paid · ₦1.8M pending · ₦420K refunded.</p></div><button class="btn" onclick="exportPayments()">Export payments</button></div><div class="panel" style="margin-top:18px"><div class="ph"><h2>Recent payments</h2><span class="muted">September 2026</span></div><table class="table"><thead><tr><th>Reference</th><th>Order</th><th>Customer</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody><tr><td>PSK-90218</td><td>DOWA-10492</td><td>Jane Doe</td><td>₦850,000</td><td><span class="status greenbg">Paid</span></td><td><button class="action-btn" onclick="showToast('Payment details opened for PSK-90218')">View</button></td></tr><tr><td>PSK-90217</td><td>DOWA-10491</td><td>John Ade</td><td>₦490,000</td><td><span class="status amber">Pending</span></td><td><button class="action-btn" onclick="showToast('Payment reminder queued for John Ade')">Remind</button></td></tr></tbody></table></div></div><div id="reviews" class="page"><div class="head"><div><h1>Reviews</h1><p class="sub" id="reviewSummary">Loading customer reviews...</p></div><button class="btn dark" onclick="loadAdminReviews()">↻ Refresh</button></div><div class="panel" style="margin-top:18px"><div class="ph"><h2>Customer Reviews</h2><span class="muted" id="reviewCount">0</span></div><div class="tablewrap"><table class="table"><thead><tr><th>Customer</th><th>Product</th><th>Rating</th><th>Review</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminReviewsBody"><tr><td colspan="6">Loading...</td></tr></tbody></table></div></div></div><div id="tasks" class="page"><div class="demo-note">TASKS — Staff see only tasks assigned to them. The CEO can create, assign, reassign and monitor tasks.</div><div class="head"><div><div class="eyebrow">Work management</div><h1>Tasks</h1><p class="sub">Create and track work across the DOWA team.</p></div><button class="btn dark" onclick="openTaskModal()">＋ Add task</button></div><div class="cards" style="margin-top:10px"><div class="card"><span class="muted">Open</span><div class="metric">18</div></div><div class="card"><span class="muted">Due today</span><div class="metric">6</div></div><div class="card"><span class="muted">Completed</span><div class="metric">42</div></div><div class="card"><span class="muted">Overdue</span><div class="metric">2</div></div></div><div class="panel" style="margin-top:15px"><div class="ph"><h2>Task board</h2><span class="muted">Demo data</span></div><div class="tablewrap"><table class="table"><thead><tr><th>Task</th><th>Assigned to</th><th>Priority</th><th>Due</th><th>Status</th><th>Action</th></tr></thead><tbody><tr><td>Follow up with Jane Doe</td><td>Adam</td><td><span class="status amber">High</span></td><td>Today</td><td><span class="status blue">In progress</span></td><td><button class="action-btn" onclick="openTaskDetail('Follow up with Jane Doe','Adam')">Open</button></td></tr><tr><td>Confirm Cloud Sofa stock</td><td>David</td><td>Normal</td><td>Tomorrow</td><td><span class="status amber">Open</span></td><td><button class="action-btn" onclick="openTaskDetail('Confirm Cloud Sofa stock','David')">Open</button></td></tr></tbody></table></div></div></div>
+<div id="acquisition" class="page"><div class="demo-note">CUSTOMER ACQUISITION — Shows where enquiries and customers discovered DOWA Homes. Real attribution will come from website analytics, enquiry forms and order records.</div><div class="head"><div><div class="eyebrow">Growth intelligence</div><h1>Customer Acquisition</h1><p class="sub">Where DOWA customers and enquiries are coming from.</p></div><button class="btn" onclick="exportAcquisition()">Export sources</button></div><div class="cards" style="margin-top:10px"><div class="card"><span class="muted">Instagram</span><div class="metric">118</div><span class="green">30.6% of customers</span></div><div class="card"><span class="muted">Google</span><div class="metric">82</div><span class="green">21.2% of customers</span></div><div class="card"><span class="muted">WhatsApp</span><div class="metric">61</div><span class="green">15.8% of customers</span></div><div class="card"><span class="muted">TikTok</span><div class="metric">43</div><span class="green">11.1% of customers</span></div><div class="card"><span class="muted">Referral</span><div class="metric">39</div><span class="green">10.1% of customers</span></div></div><div class="grid"><div class="panel"><div class="ph"><h2>Customer source breakdown</h2><span class="muted">Customers</span></div><div class="funnel"><div class="frow"><label>Instagram</label><div class="track"><div class="fill" style="width:100%"></div></div><div class="num">118</div></div><div class="frow"><label>Google</label><div class="track"><div class="fill" style="width:69%"></div></div><div class="num">82</div></div><div class="frow"><label>WhatsApp</label><div class="track"><div class="fill" style="width:52%"></div></div><div class="num">61</div></div><div class="frow"><label>TikTok</label><div class="track"><div class="fill" style="width:36%"></div></div><div class="num">43</div></div><div class="frow"><label>Referral</label><div class="track"><div class="fill" style="width:33%"></div></div><div class="num">39</div></div></div></div><div class="panel"><div class="ph"><h2>Enquiry sources</h2><span class="muted">246 enquiries</span></div><div style="padding:17px;line-height:2.5;font-size:10px"><div>Instagram <b style="float:right">72</b></div><div>WhatsApp <b style="float:right">58</b></div><div>Google <b style="float:right">45</b></div><div>TikTok <b style="float:right">31</b></div><div>Referral <b style="float:right">23</b></div><div>Facebook <b style="float:right">17</b></div></div></div></div></div>
+<div id="settings" class="page"><h1>Settings</h1><p class="sub">Store, team, analytics, Google Sheets backup, payments and security.</p><div class="grid" style="margin-top:18px"><div class="panel"><div class="ph"><h2>Store settings</h2></div><div style="padding:18px"><div class="field"><label>Store name</label><input value="DOWA Homes" id="storeName"></div><div class="field"><label>Support email</label><input value="hello@dowahomes.com" id="supportEmail"></div><button class="btn dark" style="margin-top:14px" onclick="saveSettings()">Save settings</button></div></div><div class="panel"><div class="ph"><h2>Integrations</h2></div><div style="padding:18px;line-height:2.2;font-size:11px"><div>Supabase <span class="status greenbg">Connected</span></div><div>Paystack <span class="status amber">Not connected</span></div><div>Google Sheets <span class="status amber">Not connected</span></div><button class="btn" style="margin-top:10px" onclick="showToast('Integration settings opened')">Manage integrations</button></div></div></div></div>
+</section></main></div><div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()"><div class="modal-box" id="modalBox"></div></div><div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+window.DOWA_SUPABASE = window.supabase.createClient(
+  "https://knokotruplffcwsfzwny.supabase.co",
+  "sb_publishable_VQa0mu_Xqr0dx6SBxuxfyw_p4cdFdS_"
+);
+</script>
+<script>
+function show(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const p=document.getElementById(id);if(p)p.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');document.getElementById('crumb').textContent=b?b.textContent.replace(/\s+/g,' ').trim():id;window.scrollTo(0,0);if(id==='orders')loadAdminOrders();if(id==='reviews')loadAdminReviews();if(id==='support')loadAdminSupport()}
+function showSection(id){const b=[...document.querySelectorAll('.nav button')].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));show(id,b)}
+function openModal(html){document.getElementById('modalBox').innerHTML=html;document.getElementById('modalOverlay').classList.add('show')}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show')}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2200)}
+let __adminNotifications=[];
+let __adminNotificationPoll=null;
+let __adminStaffId=null;
+
+function formatAdminNotificationTime(value){const d=new Date(value);return Number.isNaN(d.getTime())?"":d.toLocaleString([],{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}
+function updateAdminNotificationBadge(){const b=document.getElementById('adminNotificationBadge');if(!b)return;const n=__adminNotifications.filter(x=>!x.is_read).length;b.textContent=n>99?'99+':String(n);b.classList.toggle('show',n>0)}
+async function getAdminNotificationStaffId(){
+  if(__adminStaffId) return __adminStaffId;
+  const session=await getAdminSession();
+  const authUser=session?.user;
+  if(!authUser) return null;
+  const {data:staff,error}=await window.DOWA_SUPABASE.from('staff_members').select('id,status').eq('auth_user_id',authUser.id).maybeSingle();
+  if(error||!staff||String(staff.status||'').toLowerCase()!=='active') return null;
+  __adminStaffId=staff.id;
+  return __adminStaffId;
+}
+async function loadAdminNotifications(silent=true){
+  try{
+    const staffId=await getAdminNotificationStaffId();
+    if(!staffId){__adminNotifications=[];updateAdminNotificationBadge();return;}
+    const {data,error}=await window.DOWA_SUPABASE.from('notifications').select('id,type,title,message,order_id,conversation_id,review_id,is_read,created_at').eq('recipient_staff_id',staffId).order('created_at',{ascending:false}).limit(50);
+    if(error) throw error;
+    const before=__adminNotifications.filter(x=>!x.is_read).length;
+    __adminNotifications=data||[];
+    updateAdminNotificationBadge();
+    if(!silent){const after=__adminNotifications.filter(x=>!x.is_read).length;if(after>before){const n=__adminNotifications.find(x=>!x.is_read);if(n)showToast(n.title||'New DOWA notification.')}}
+  }catch(e){console.error('Admin notifications load failed:',e)}
+}
+function renderAdminNotifications(){
+  const holder=document.getElementById('adminNotificationList');if(!holder)return;
+  if(!__adminNotifications.length){holder.innerHTML='<div style="padding:30px;text-align:center;color:#77736b;font-size:10px">No notifications yet.</div>';updateAdminNotificationBadge();return;}
+  holder.innerHTML=__adminNotifications.map(n=>`<div class="admin-notification-item ${n.is_read?'read':'unread'}" onclick="openAdminNotification(${Number(n.id)})"><span class="admin-notification-dot"></span><div><h4>${escapeHtml(n.title||'DOWA Homes')}</h4><p>${escapeHtml(n.message||'')}</p></div><small>${escapeHtml(formatAdminNotificationTime(n.created_at))}</small></div>`).join('');
+  updateAdminNotificationBadge();
+}
+async function markAdminNotificationRead(id){const staffId=await getAdminNotificationStaffId();if(!staffId)return;const {error}=await window.DOWA_SUPABASE.from('notifications').update({is_read:true}).eq('id',id).eq('recipient_staff_id',staffId);if(error){console.error(error);return}const n=__adminNotifications.find(x=>Number(x.id)===Number(id));if(n)n.is_read=true;renderAdminNotifications()}
+async function markAllAdminNotificationsRead(){const staffId=await getAdminNotificationStaffId();if(!staffId)return;const {error}=await window.DOWA_SUPABASE.from('notifications').update({is_read:true}).eq('recipient_staff_id',staffId).eq('is_read',false);if(error){showToast('Could not mark notifications as read.');return}__adminNotifications.forEach(n=>n.is_read=true);renderAdminNotifications()}
+async function openAdminNotification(id){await markAdminNotificationRead(id);const n=__adminNotifications.find(x=>Number(x.id)===Number(id));if(!n)return;if(n.type==='new_order'){show('orders');}else if(n.type==='customer_message'){show('support');loadAdminSupport();}else if(n.type==='new_review'){show('reviews');loadAdminReviews();}}
+async function openAdminNotifications(){await loadAdminNotifications(true);openModal(`<h2>Notifications</h2><p>New orders, customer messages, reviews and other DOWA activity appear here.</p><div class="admin-notification-list" id="adminNotificationList"></div><div class="modal-actions"><button class="btn" onclick="markAllAdminNotificationsRead()">Mark all read</button><button class="btn dark" onclick="closeModal()">Close</button></div>`);renderAdminNotifications()}
+function startAdminNotificationPolling(){clearInterval(__adminNotificationPoll);loadAdminNotifications(true);__adminNotificationPoll=setInterval(()=>{if(document.visibilityState!=='hidden')loadAdminNotifications(false)},15000)}
+
+let __adminProducts = [];
+let __editingProductId = null;
+let __productImages = [];
+
+let __adminReviews=[];
+let __adminSupportConversations=[];
+let __selectedSupportConversationId=null;
+
+async function loadAdminReviews(){
+  const body=document.getElementById('adminReviewsBody');
+  const summary=document.getElementById('reviewSummary');
+  const count=document.getElementById('reviewCount');
+  if(!body||!window.DOWA_SUPABASE) return;
+  body.innerHTML='<tr><td colspan="6">Loading...</td></tr>';
+  try{
+    const {data:reviews,error}=await window.DOWA_SUPABASE
+      .from('reviews')
+      .select('id,product_id,customer_id,rating,review_text,status,created_at')
+      .order('created_at',{ascending:false});
+    if(error) throw error;
+
+    const rows=reviews||[];
+    const customerIds=[...new Set(rows.map(r=>r.customer_id).filter(Boolean))];
+    const productIds=[...new Set(rows.map(r=>r.product_id).filter(Boolean))];
+    let customerMap={},productMap={};
+
+    if(customerIds.length){
+      const {data:customers,error:e}=await window.DOWA_SUPABASE.from('customers').select('id,full_name,email').in('id',customerIds);
+      if(e) throw e;
+      customerMap=Object.fromEntries((customers||[]).map(c=>[Number(c.id),c]));
+    }
+    if(productIds.length){
+      const {data:products,error:e}=await window.DOWA_SUPABASE.from('products').select('id,name').in('id',productIds);
+      if(e) throw e;
+      productMap=Object.fromEntries((products||[]).map(p=>[Number(p.id),p]));
+    }
+
+    __adminReviews=rows.map(r=>({...r,customer:customerMap[Number(r.customer_id)]||{},product:productMap[Number(r.product_id)]||{}}));
+    body.innerHTML=__adminReviews.length?__adminReviews.map(r=>{
+      const stars='★★★★★'.slice(0,Number(r.rating)||0)+'☆☆☆☆☆'.slice(0,5-(Number(r.rating)||0));
+      const status=r.status||'pending';
+      const cls=status==='approved'?'greenbg':status==='rejected'?'danger':'amber';
+      return `<tr><td>${escapeHtml(r.customer?.full_name||r.customer?.email||'Customer')}</td><td>${escapeHtml(r.product?.name||('Product #'+r.product_id))}</td><td>${stars}</td><td style="white-space:normal;min-width:220px">${escapeHtml(r.review_text||'')}</td><td><span class="status ${cls}">${escapeHtml(status)}</span></td><td><button class="action-btn" onclick="updateAdminReview(${Number(r.id)},'approved')">Approve</button> <button class="action-btn danger" onclick="updateAdminReview(${Number(r.id)},'rejected')">Reject</button></td></tr>`;
+    }).join(''):'<tr><td colspan="6">No customer reviews found.</td></tr>';
+    if(count) count.textContent=String(__adminReviews.length);
+    if(summary){ const pending=__adminReviews.filter(r=>r.status==='pending').length; summary.textContent=`${__adminReviews.length} customer review${__adminReviews.length===1?'':'s'} · ${pending} pending`; }
+  }catch(error){
+    console.error('Admin reviews load failed:',error);
+    body.innerHTML='<tr><td colspan="6">Could not load customer reviews. Check Supabase policies.</td></tr>';
+    if(summary) summary.textContent='Reviews could not be loaded.';
+    showToast('Could not load customer reviews.');
+  }
+}
+
+async function updateAdminReview(id,status){
+  try{
+    const {error}=await window.DOWA_SUPABASE.from('reviews').update({status}).eq('id',id);
+    if(error) throw error;
+    await loadAdminReviews();
+    showToast(`Review ${status}.`);
+  }catch(error){
+    console.error('Review update failed:',error);
+    showToast(error?.message||'Review update failed.');
+  }
+}
+
+async function loadAdminSupport(){
+  const body=document.getElementById('adminSupportBody');
+  const summary=document.getElementById('supportSummary');
+  if(!body||!window.DOWA_SUPABASE) return;
+  body.innerHTML='<tr><td colspan="5">Loading...</td></tr>';
+  try{
+    const {data:conversations,error}=await window.DOWA_SUPABASE
+      .from('support_conversations')
+      .select('id,customer_id,order_id,assigned_staff_id,subject,status,last_message_at,created_at,updated_at')
+      .order('updated_at',{ascending:false});
+    if(error) throw error;
+    const rows=conversations||[];
+    const customerIds=[...new Set(rows.map(r=>r.customer_id).filter(Boolean))];
+    let customerMap={};
+    if(customerIds.length){
+      const {data:customers,error:e}=await window.DOWA_SUPABASE.from('customers').select('id,full_name,email,phone').in('id',customerIds);
+      if(e) throw e;
+      customerMap=Object.fromEntries((customers||[]).map(c=>[Number(c.id),c]));
+    }
+    __adminSupportConversations=rows.map(r=>({...r,customer:customerMap[Number(r.customer_id)]||{}}));
+    filterAdminSupport();
+  }catch(error){
+    console.error('Admin support load failed:',error);
+    body.innerHTML='<tr><td colspan="5">Could not load support conversations. Check Supabase policies.</td></tr>';
+    if(summary) summary.textContent='Support could not be loaded.';
+    showToast('Could not load customer messages.');
+  }
+}
+
+function filterAdminSupport(){
+  const body=document.getElementById('adminSupportBody');
+  const summary=document.getElementById('supportSummary');
+  if(!body) return;
+  const search=String(document.getElementById('supportSearch')?.value||'').trim().toLowerCase();
+  const selectedStatus=String(document.getElementById('supportStatusFilter')?.value||'all');
+  const rows=__adminSupportConversations.filter(c=>{
+    const state=String(c.status||'New Message');
+    const customerName=String(c.customer?.full_name||'').toLowerCase();
+    const email=String(c.customer?.email||'').toLowerCase();
+    const subject=String(c.subject||'General Support').toLowerCase();
+    const matchesSearch=!search || customerName.includes(search) || email.includes(search) || subject.includes(search);
+    const matchesStatus=selectedStatus==='all' || state===selectedStatus;
+    return matchesSearch && matchesStatus;
+  });
+  body.innerHTML=rows.length?rows.map(c=>{
+    const state=String(c.status||'New Message');
+    const cls=state==='Replied'?'greenbg':state==='Read — Awaiting Reply'?'blue':state==='Resolved'?'greenbg':'amber';
+    return `<tr><td>${escapeHtml(c.customer?.full_name||c.customer?.email||'Customer')}</td><td>${escapeHtml(c.subject||'General Support')}</td><td><span class="status ${cls}">${escapeHtml(state)}</span></td><td>${escapeHtml(formatAdminDate(c.last_message_at||c.updated_at))}</td><td><button class="action-btn" onclick="openAdminSupportConversation(${Number(c.id)})">Open</button></td></tr>`;
+  }).join(''):'<tr><td colspan="5">No conversations match this filter.</td></tr>';
+  if(summary){
+    summary.textContent=`${rows.length} of ${__adminSupportConversations.length} customer conversation${__adminSupportConversations.length===1?'':'s'}`;
+  }
+}
+
+function formatAdminDate(value){ if(!value) return '—'; const d=new Date(value); return Number.isNaN(d.getTime())?'—':d.toLocaleString('en-NG',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}); }
+
+async function openAdminSupportConversation(id){
+  const c=__adminSupportConversations.find(x=>Number(x.id)===Number(id));
+  if(!c) return;
+  const {data:messages,error}=await window.DOWA_SUPABASE.from('support_messages').select('id,conversation_id,sender_customer_id,sender_staff_id,message,is_read,created_at').eq('conversation_id',id).order('created_at',{ascending:true});
+  if(error){ console.error(error); showToast(error.message||'Could not load conversation.'); return; }
+  __selectedSupportConversationId=id;
+  const latestMessage=(messages||[])[(messages||[]).length-1];
+  const latestFromCustomer=!!latestMessage && !!latestMessage.sender_customer_id;
+  if(latestFromCustomer && c.status!=='Replied'){
+    const now=new Date().toISOString();
+    const {error:readError}=await window.DOWA_SUPABASE.from('support_conversations').update({status:'Read — Awaiting Reply',updated_at:now}).eq('id',id);
+    if(readError){console.error('Support read-state update failed:',readError);}
+    else c.status='Read — Awaiting Reply';
+  }
+  const messageHtml=(messages||[]).map(m=>`<div style="padding:10px 0;border-bottom:1px solid #e5e0d7"><b>${m.sender_staff_id?'DOWA Staff':escapeHtml(c.customer?.full_name||'Customer')}</b><div style="margin-top:4px;white-space:pre-wrap">${escapeHtml(m.message||'')}</div><small class="muted">${formatAdminDate(m.created_at)}</small></div>`).join('');
+  openModal(`<h2>${escapeHtml(c.subject||'Support Conversation')}</h2><p>${escapeHtml(c.customer?.full_name||c.customer?.email||'Customer')} · ${escapeHtml(c.customer?.email||'')}</p><div class="panel" style="padding:14px;max-height:360px;overflow:auto">${messageHtml||'<div class="muted">No messages found.</div>'}</div><div class="field"><label>Reply to customer</label><textarea id="adminSupportReplyText" placeholder="Write your reply..."></textarea></div><div class="field"><label>Status</label><select id="adminSupportStatus"><option ${c.status==='New Message'?'selected':''}>New Message</option><option ${c.status==='Read — Awaiting Reply'?'selected':''}>Read — Awaiting Reply</option><option ${c.status==='Replied'?'selected':''}>Replied</option></select></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button><button class="btn dark" onclick="sendAdminSupportReplyLive()">Send Reply</button></div>`);
+}
+
+async function sendAdminSupportReplyLive(){
+  const text=document.getElementById('adminSupportReplyText')?.value.trim();
+  if(!__selectedSupportConversationId||!text){showToast('Write a reply first.');return;}
+
+  try{
+    /* =========================
+       GET CURRENT AUTH USER
+       ========================= */
+    const session=await getAdminSession();
+    const authUser=session?.user;
+
+    if(!authUser){
+      throw new Error('Admin session not found.');
+    }
+
+    /* =========================
+       FIND STAFF MEMBER
+       AUTH UUID -> BIGINT STAFF ID
+       ========================= */
+    const {data:staffMember,error:staffError}=
+      await window.DOWA_SUPABASE
+        .from('staff_members')
+        .select('id,auth_user_id,full_name,email,status')
+        .eq('auth_user_id',authUser.id)
+        .maybeSingle();
+
+    if(staffError){
+      console.error('Staff lookup failed:',staffError);
+      throw staffError;
+    }
+
+    if(!staffMember){
+      throw new Error('Your CEO account is not connected to a staff member. Check staff_members.auth_user_id.');
+    }
+
+    if(String(staffMember.status||'').toLowerCase()!=='active'){
+      throw new Error('Your staff account is not active.');
+    }
+
+    /* sender_staff_id is BIGINT, so use staff_members.id, not authUser.id */
+    const staffId=staffMember.id;
+    const now=new Date().toISOString();
+
+    /* =========================
+       SEND STAFF REPLY
+       ========================= */
+    const {error:messageError}=
+      await window.DOWA_SUPABASE
+        .from('support_messages')
+        .insert({
+          conversation_id:__selectedSupportConversationId,
+          sender_staff_id:staffId,
+          message:text,
+          is_read:false
+        });
+
+    if(messageError){
+      console.error('Support message insert failed:',messageError);
+      throw messageError;
+    }
+
+    /* =========================
+       UPDATE CONVERSATION
+       ========================= */
+    const {error:updateError}=
+      await window.DOWA_SUPABASE
+        .from('support_conversations')
+        .update({
+          status:'Replied',
+          last_message_at:now,
+          updated_at:now
+        })
+        .eq('id',__selectedSupportConversationId);
+
+    if(updateError){
+      console.error('Support conversation update failed:',updateError);
+      throw updateError;
+    }
+
+    closeModal();
+    await loadAdminSupport();
+    showToast('Reply sent to customer.');
+
+  }catch(error){
+    console.error('Admin support reply failed:',error);
+    showToast(error?.message||'Could not send reply.');
+  }
+}
+
+async function loadAdminProducts(){
+  const body=document.getElementById('adminProductsBody');
+  if(!body || !window.DOWA_SUPABASE) return;
+  body.innerHTML='<tr><td colspan="6">Loading...</td></tr>';
+  const {data,error}=await window.DOWA_SUPABASE
+    .from('products')
+    .select('id,name,category,base_price,status,description,main_image_url,product_variants(id,variant_name,color,sku,original_price,sale_price,status,inventory(quantity))')
+    .order('id',{ascending:true});
+  if(error){
+    console.error(error);
+    body.innerHTML='<tr><td colspan="6">Could not load products. Check Supabase access policies.</td></tr>';
+    showToast('Could not load products.');
+    return;
+  }
+  __adminProducts=data||[];
+  renderAdminProducts();
+}
+
+function renderAdminProducts(){
+  const body=document.getElementById('adminProductsBody');
+  const summary=document.getElementById('productSummary');
+  if(!body) return;
+  let low=0, out=0;
+  body.innerHTML='';
+  if(!__adminProducts.length){
+    body.innerHTML='<tr><td colspan="6">No products found.</td></tr>';
+  }
+  __adminProducts.forEach(p=>{
+    const variants=p.product_variants||[];
+    const stock=variants.reduce((sum,v)=>sum+((v.inventory&&v.inventory[0]?.quantity)||0),0);
+    const price=p.base_price||0;
+    if(stock===0) out++; else if(stock<=2) low++;
+    const status=stock===0?'Out of stock':(p.status||'active');
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${escapeHtml(p.name)}</td><td>${escapeHtml(p.category||'')}</td><td>₦${Number(price).toLocaleString('en-NG')}</td><td>${stock}</td><td><span class="status ${status==='active'?'greenbg':status==='Out of stock'?'':'amber'}">${escapeHtml(status)}</span></td><td><button class="action-btn" onclick="editProductById(${p.id})">Edit</button>
+      <button class="action-btn danger" onclick="deleteProductById(${p.id})">Delete</button></td>`;
+    body.appendChild(tr);
+  });
+  if(summary) summary.textContent=`${__adminProducts.filter(p=>p.status==='active').length} active products · ${low} low stock · ${out} out of stock`;
+}
+
+function escapeHtml(v){
+  return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+
+function variantKey(value){
+  return String(value).replace(/[^A-Za-z0-9]/g,'_');
+}
+
+function renderVariantPricingFields(existing=[]){
+  const field=document.getElementById('variantPricingField');
+  const container=document.getElementById('variantPricingRows');
+  if(!field||!container) return;
+
+  const category=document.getElementById('pCategory')?.value;
+  const sizes=category==='Sofas'
+    ? [...document.querySelectorAll('input[name="sofaSize"]:checked')].map(x=>x.value)
+    : ['Default'];
+
+  if(!sizes.length){
+    field.style.display='none';
+    container.innerHTML='';
+    return;
+  }
+
+  field.style.display='block';
+
+  const rows=sizes.map(size=>{
+    const found=(existing||[]).find(v=>String(v.variant_name||'')===String(size));
+    const key=variantKey(size);
+    const sale=found?.sale_price ?? '';
+    const original=found?.original_price ?? '';
+    const stock=found?.stock_quantity ?? '';
+
+    return `<div class="variant-price-row" style="display:grid;grid-template-columns:1.2fr 1fr 1fr .8fr;gap:8px;align-items:end;border:1px solid #e5e0d7;border-radius:10px;padding:10px;margin-top:8px;background:#fff">
+      <div><label style="font-size:9px">Size</label><div style="font-weight:700;font-size:11px;padding:10px 0">${escapeHtml(size)}</div></div>
+      <div><label style="font-size:9px">Original / Strike Price ₦</label><input id="original_${key}" type="number" min="0" value="${original}" placeholder="e.g. 850000"></div>
+      <div><label style="font-size:9px">Sale Price ₦</label><input id="sale_${key}" type="number" min="0" value="${sale}" placeholder="e.g. 750000"></div>
+      <div><label style="font-size:9px">Stock</label><input id="stock_${key}" type="number" min="0" value="${stock}" placeholder="0"></div>
+    </div>`;
+  }).join('');
+
+  container.innerHTML=rows;
+}
+
+function openProductModal(edit=false,data={}){
+  __productImages=[];
+  __editingProductId=edit ? data.id : null;
+
+  const variants=data.product_variants||[];
+  const sizes=variants.map(v=>v.variant_name).filter(Boolean);
+  const colors=[...new Set(variants.map(v=>v.color).filter(Boolean))];
+
+  openModal(`<h2>${edit?'Edit product':'Add product'}</h2>
+  <p>${edit?'Update the product information below.':'Create a product and its customer-selectable variants.'}</p>
+
+  <div class="form-grid">
+    <div class="field full">
+      <label>Product name</label>
+      <input id="pName" value="${escapeHtml(data.name||'')}" placeholder="e.g. DOWA Cloud Sofa">
+    </div>
+
+    <div class="field">
+      <label>Category</label>
+      <select id="pCategory" onchange="toggleSofaSizes()">
+        <option ${data.category==='Sofas'?'selected':''}>Sofas</option>
+        <option ${data.category==='Bedframes'?'selected':''}>Bedframes</option>
+        <option ${data.category==='Pillows'?'selected':''}>Pillows</option>
+        <option ${data.category==='Art'?'selected':''}>Art</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Base price (₦)</label>
+      <input id="pPrice" type="number" min="0" value="${data.base_price??''}" placeholder="Used for non-variant products">
+    </div>
+
+    <div class="field">
+      <label>Status</label>
+      <select id="pStatus">
+        <option value="active" ${(data.status||'active')==='active'?'selected':''}>Active</option>
+        <option value="draft" ${data.status==='draft'?'selected':''}>Draft</option>
+        <option value="out_of_stock" ${data.status==='out_of_stock'?'selected':''}>Out of stock</option>
+      </select>
+    </div>
+
+    <div class="field full" id="sofaSizesField">
+      <label>Sofa sizes</label>
+      <div class="size-picker">
+        ${['2-Seater','3-Seater','4-Seater','5-Seater','L-Shape','U-Shape','Custom Size'].map(x=>`
+          <label class="size-chip">
+            <input type="checkbox" name="sofaSize" value="${x}" ${sizes.includes(x)?'checked':''} onchange="renderVariantPricingFields()">
+            <span>${x}</span>
+          </label>`).join('')}
+      </div>
+      <small style="color:#77736b;font-size:9px">Select every size customers can order. Each selected size gets its own price and stock.</small>
+    </div>
+
+    <div class="field full" id="variantPricingField" style="display:none">
+      <label>Variant pricing & stock</label>
+      <div id="variantPricingRows"></div>
+    </div>
+
+    <div class="field full">
+      <label>Product colours</label>
+      <input id="pColors" value="${escapeHtml(colors.join(', '))}" placeholder="Cream, Charcoal, Forest Green, Tan">
+      <small style="color:#77736b;font-size:9px">Separate colours with commas. Leave blank if the product has no colour options.</small>
+    </div>
+
+    <div class="field full">
+      <label>Product pictures</label>
+      <input id="pImages" type="file" accept="image/*" multiple onchange="previewProductImages(event)">
+      <small style="color:#77736b;font-size:9px">Images are previewed here. Secure R2 upload remains separate from this browser file.</small>
+      <div id="productImagePreview" class="image-preview"></div>
+    </div>
+
+    <div class="field full">
+      <label>Description</label>
+      <textarea id="pDesc" placeholder="Product description">${escapeHtml(data.description||'')}</textarea>
+    </div>
+  </div>
+
+  <div class="modal-actions">
+    <button class="btn" onclick="closeModal()">Cancel</button>
+    <button class="btn dark" onclick="saveProductToSupabase()">${edit?'Save changes':'Add product'}</button>
+  </div>`);
+
+  toggleSofaSizes();
+  renderVariantPricingFields(variants);
+}
+function toggleSofaSizes(){
+  const category=document.getElementById('pCategory')?.value;
+  const field=document.getElementById('sofaSizesField');
+  if(field) field.style.display=category==='Sofas'?'flex':'none';
+
+  renderVariantPricingFields();
+}
+
+function previewProductImages(event){
+  const files=[...event.target.files];
+  __productImages=files;
+  const preview=document.getElementById('productImagePreview');
+  if(!preview) return;
+  preview.innerHTML='';
+  files.forEach(file=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const img=document.createElement('img');
+      img.src=e.target.result; img.title=file.name; preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function saveProductToSupabase(){
+  if(!window.DOWA_SUPABASE){
+    showToast('DIAGNOSTIC: Supabase is not connected.');
+    return;
+  }
+
+  const n=document.getElementById('pName').value.trim();
+  const category=document.getElementById('pCategory').value;
+  const basePrice=Number(document.getElementById('pPrice').value||0);
+  const status=document.getElementById('pStatus').value;
+  const description=document.getElementById('pDesc').value.trim();
+
+  if(!n){ showToast('Product name is required.'); return; }
+
+  const sizes=[...document.querySelectorAll('input[name="sofaSize"]:checked')].map(x=>x.value);
+  if(category==='Sofas' && !sizes.length){
+    showToast('Select at least one sofa size.');
+    return;
+  }
+
+  const variantRows=category==='Sofas'
+    ? sizes.map(size=>{
+        const key=variantKey(size);
+        return {
+          name:size,
+          original_price:Number(document.getElementById(`original_${key}`)?.value||0),
+          sale_price:Number(document.getElementById(`sale_${key}`)?.value||0),
+          stock_quantity:Number(document.getElementById(`stock_${key}`)?.value||0)
+        };
+      })
+    : [{
+        name:'Default',
+        original_price:basePrice,
+        sale_price:basePrice,
+        stock_quantity:Number(document.getElementById('defaultStock')?.value||0)
+      }];
+
+  for(const v of variantRows){
+    if(v.sale_price<=0){ showToast(`Enter a sale price for ${v.name}.`); return; }
+    if(v.original_price<=0) v.original_price=v.sale_price;
+  }
+
+  const syncedBasePrice=category==='Sofas'
+    ? Math.min(...variantRows.map(v=>v.sale_price))
+    : basePrice;
+
+  if(syncedBasePrice<=0){ showToast('Enter a valid product price.'); return; }
+
+  const payload={
+    name:n,
+    category,
+    base_price:syncedBasePrice,
+    status,
+    description,
+    updated_at:new Date().toISOString()
+  };
+
+  let productId=__editingProductId;
+  let stage='START';
+
+  function diagnosticFailure(label,error,extra={}){
+    console.error(`[DOWA PRODUCT DIAGNOSTIC] ${label}`,{error,...extra});
+    const message=error?.message || error?.details || error?.hint || String(error || 'Unknown error');
+    showToast(`${label}: ${message}`);
+  }
+
+  try{
+    if(productId){
+      stage='PRODUCT UPDATE';
+      const result=await window.DOWA_SUPABASE
+        .from('products')
+        .update(payload)
+        .eq('id',productId);
+      if(result.error){ diagnosticFailure(stage,result.error,{productId,payload}); throw result.error; }
+      console.info('[DOWA PRODUCT DIAGNOSTIC] PRODUCT UPDATE OK',{productId});
+    }else{
+      stage='PRODUCT INSERT + RETURN ID';
+      const result=await window.DOWA_SUPABASE
+        .from('products')
+        .insert(payload)
+        .select('id')
+        .single();
+      if(result.error){ diagnosticFailure(stage,result.error,{payload}); throw result.error; }
+      if(!result.data?.id){
+        const err=new Error('Product insert returned no product ID.');
+        diagnosticFailure(stage,err,{result});
+        throw err;
+      }
+      productId=result.data.id;
+      console.info('[DOWA PRODUCT DIAGNOSTIC] PRODUCT INSERT OK',{productId});
+    }
+
+    stage='READ EXISTING VARIANTS';
+    const oldVariantsResult=await window.DOWA_SUPABASE
+      .from('product_variants')
+      .select('id')
+      .eq('product_id',productId);
+    if(oldVariantsResult.error){ diagnosticFailure(stage,oldVariantsResult.error,{productId}); throw oldVariantsResult.error; }
+    const oldVariantIds=(oldVariantsResult.data||[]).map(v=>v.id);
+    console.info('[DOWA PRODUCT DIAGNOSTIC] READ EXISTING VARIANTS OK',{productId,oldVariantIds});
+
+    if(oldVariantIds.length){
+      stage='DELETE OLD INVENTORY';
+      const inventoryDelete=await window.DOWA_SUPABASE
+        .from('inventory')
+        .delete()
+        .in('variant_id',oldVariantIds);
+      if(inventoryDelete.error){ diagnosticFailure(stage,inventoryDelete.error,{productId,oldVariantIds}); throw inventoryDelete.error; }
+      console.info('[DOWA PRODUCT DIAGNOSTIC] DELETE OLD INVENTORY OK',{productId,oldVariantIds});
+    }
+
+    stage='DELETE OLD VARIANTS';
+    const variantDelete=await window.DOWA_SUPABASE
+      .from('product_variants')
+      .delete()
+      .eq('product_id',productId);
+    if(variantDelete.error){ diagnosticFailure(stage,variantDelete.error,{productId}); throw variantDelete.error; }
+    console.info('[DOWA PRODUCT DIAGNOSTIC] DELETE OLD VARIANTS OK',{productId});
+
+    const colourText=document.getElementById('pColors')?.value||'';
+    const colours=colourText.split(',').map(x=>x.trim()).filter(Boolean);
+    const variantPayload=[];
+
+    for(const v of variantRows){
+      const colourList=colours.length?colours:[null];
+      for(const colour of colourList){
+        variantPayload.push({
+          product_id:productId,
+          variant_name:v.name,
+          color:colour,
+          sku:`DOWA-${productId}-${v.name.replace(/[^A-Za-z0-9]/g,'').toUpperCase()}${colour?'-'+colour.replace(/[^A-Za-z0-9]/g,'').toUpperCase():''}`,
+          original_price:v.original_price,
+          sale_price:v.sale_price,
+          stock_quantity:v.stock_quantity,
+          status:'active',
+          updated_at:new Date().toISOString()
+        });
+      }
+    }
+
+    stage='VARIANT INSERT + RETURN ID';
+    const insertedVariants=await window.DOWA_SUPABASE
+      .from('product_variants')
+      .insert(variantPayload)
+      .select('id');
+    if(insertedVariants.error){ diagnosticFailure(stage,insertedVariants.error,{productId,variantPayload}); throw insertedVariants.error; }
+    if(!insertedVariants.data?.length){
+      const err=new Error('Variant insert returned no variant IDs.');
+      diagnosticFailure(stage,err,{productId,variantPayload});
+      throw err;
+    }
+    console.info('[DOWA PRODUCT DIAGNOSTIC] VARIANT INSERT OK',{productId,variantIds:insertedVariants.data.map(v=>v.id)});
+
+    stage='INVENTORY INSERT';
+    const inventoryPayload=insertedVariants.data.map((v,i)=>{
+      const source=variantRows[Math.floor(i/Math.max(colours.length,1))];
+      return {
+        variant_id:v.id,
+        quantity:Number(source?.stock_quantity||0),
+        low_stock_threshold:2,
+        updated_at:new Date().toISOString()
+      };
+    });
+    const inventoryResult=await window.DOWA_SUPABASE
+      .from('inventory')
+      .insert(inventoryPayload);
+    if(inventoryResult.error){ diagnosticFailure(stage,inventoryResult.error,{productId,inventoryPayload}); throw inventoryResult.error; }
+    console.info('[DOWA PRODUCT DIAGNOSTIC] INVENTORY INSERT OK',{productId,inventoryPayload});
+
+    /* =========================
+       PRODUCT IMAGE UPLOAD
+       ========================= */
+
+    if(__productImages && __productImages.length){
+
+      const uploadedImageUrls=[];
+
+      for(const file of __productImages){
+
+        if(!file) continue;
+
+        const safeName=file.name
+          .toLowerCase()
+          .replace(/[^a-z0-9.]+/g,'-');
+
+        const imagePath=
+          'products/' +
+          productId +
+          '/' +
+          Date.now() +
+          '-' +
+          Math.random().toString(36).slice(2,8) +
+          '-' +
+          safeName;
+
+        stage='PRODUCT IMAGE UPLOAD';
+
+        const uploadResult=await window.DOWA_SUPABASE
+          .storage
+          .from('product-images')
+          .upload(
+            imagePath,
+            file,
+            {
+              cacheControl:'3600',
+              upsert:false,
+              contentType:file.type
+            }
+          );
+
+        if(uploadResult.error){
+          diagnosticFailure(stage,uploadResult.error,{
+            productId,
+            imagePath,
+            fileName:file.name
+          });
+          throw uploadResult.error;
+        }
+
+        const publicUrlResult=window.DOWA_SUPABASE
+          .storage
+          .from('product-images')
+          .getPublicUrl(imagePath);
+
+        const publicUrl=publicUrlResult?.data?.publicUrl;
+
+        if(publicUrl){
+          uploadedImageUrls.push(publicUrl);
+        }
+      }
+
+      /* =========================
+         SAVE MAIN IMAGE URL
+         ========================= */
+
+      if(uploadedImageUrls.length){
+
+        stage='SAVE MAIN IMAGE URL';
+
+        const imageUpdate=await window.DOWA_SUPABASE
+          .from('products')
+          .update({
+            main_image_url:uploadedImageUrls[0]
+          })
+          .eq('id',productId);
+
+        if(imageUpdate.error){
+          diagnosticFailure(stage,imageUpdate.error,{
+            productId,
+            mainImageUrl:uploadedImageUrls[0]
+          });
+          throw imageUpdate.error;
+        }
+
+        console.info(
+          '[DOWA PRODUCT DIAGNOSTIC] MAIN IMAGE SAVED',
+          {
+            productId,
+            mainImageUrl:uploadedImageUrls[0],
+            uploadedImageCount:uploadedImageUrls.length
+          }
+        );
+      }
+    }
+
+    const wasEditing=!!__editingProductId;
+    closeModal();
+    __editingProductId=null;
+    await loadAdminProducts();
+    showToast(`${n} ${wasEditing?'saved':'added'} successfully.`);
+  }catch(error){
+    console.error('[DOWA PRODUCT DIAGNOSTIC] FAILED',{stage,productId,error});
+    showToast(`FAILED AT ${stage}: ${error?.message || error?.details || 'Unknown Supabase error'}`);
+  }
+}
+
+function editProductById(id){
+  const p=__adminProducts.find(x=>Number(x.id)===Number(id));
+  if(p) openProductModal(true,p);
+}
+
+
+async function deleteProductById(id){
+  const p=__adminProducts.find(x=>Number(x.id)===Number(id));
+  if(!p) return;
+  const confirmed=window.confirm(`Delete "${p.name}"? This will remove the product and its variants/inventory records. This cannot be undone.`);
+  if(!confirmed) return;
+
+  try{
+    // Delete dependent records first so the action remains safe even if cascade rules differ.
+    const {data:variants,error:variantReadError}=await window.DOWA_SUPABASE
+      .from('product_variants')
+      .select('id')
+      .eq('product_id',id);
+
+    if(variantReadError) throw variantReadError;
+
+    const variantIds=(variants||[]).map(v=>v.id);
+
+    if(variantIds.length){
+      const {error:inventoryError}=await window.DOWA_SUPABASE
+        .from('inventory')
+        .delete()
+        .in('variant_id',variantIds);
+      if(inventoryError) throw inventoryError;
+
+      const {error:variantError}=await window.DOWA_SUPABASE
+        .from('product_variants')
+        .delete()
+        .eq('product_id',id);
+      if(variantError) throw variantError;
+    }
+
+    const {error:imageError}=await window.DOWA_SUPABASE
+      .from('product_images')
+      .delete()
+      .eq('product_id',id);
+    if(imageError) throw imageError;
+
+    const {error:productError}=await window.DOWA_SUPABASE
+      .from('products')
+      .delete()
+      .eq('id',id);
+    if(productError) throw productError;
+
+    await loadAdminProducts();
+    showToast(`${p.name} deleted.`);
+  }catch(error){
+    console.error('Product deletion failed:',error);
+    showToast(error?.message || 'Product deletion failed. Check Admin/Supabase permissions.');
+  }
+}
+
+// Backward-compatible helper for any existing demo buttons.
+function editProduct(name,price,stock){
+  const p=__adminProducts.find(x=>x.name===name);
+  if(p) editProductById(p.id);
+}
+
+async function getAdminSession(){
+  if(!window.DOWA_SUPABASE) return null;
+  const {data,error}=await window.DOWA_SUPABASE.auth.getSession();
+  if(error){console.error('Admin session lookup failed:',error);return null;}
+  return data?.session||null;
+}
+
+function adminHasAccess(user){
+  const role=String(user?.app_metadata?.role||'').toLowerCase();
+  return role==='ceo' || role==='super admin' || role==='super_admin';
+}
+
+function showAdminAuthError(message){
+  const box=document.getElementById('adminAuthError');
+  if(box){box.textContent=message;box.classList.add('show');}
+}
+
+function clearAdminAuthError(){
+  const box=document.getElementById('adminAuthError');
+  if(box){box.textContent='';box.classList.remove('show');}
+}
+
+async function unlockAdmin(user){
+  if(!adminHasAccess(user)){
+    await window.DOWA_SUPABASE.auth.signOut();
+    showAdminAuthError('This account is not authorized for the DOWA Admin Dashboard.');
+    return false;
+  }
+  document.getElementById('adminAuthGate')?.classList.add('hidden');
+  document.querySelector('.app')?.classList.add('admin-unlocked');
+  const status=document.getElementById('adminAuthStatus');
+  if(status) status.textContent='';
+  await loadAdminProducts();
+  await loadAdminOrders();
+  await loadAdminReviews();
+  await loadAdminSupport();
+  startAdminNotificationPolling();
+  return true;
+}
+
+async function adminLogin(event){
+  event.preventDefault();
+  clearAdminAuthError();
+  const email=document.getElementById('adminEmail')?.value.trim().toLowerCase();
+  const password=document.getElementById('adminPassword')?.value||'';
+  const status=document.getElementById('adminAuthStatus');
+  if(status) status.textContent='Signing in…';
+  try{
+    const {data,error}=await window.DOWA_SUPABASE.auth.signInWithPassword({email,password});
+    if(error) throw error;
+    if(!(await unlockAdmin(data.user))){ if(status) status.textContent=''; return; }
+    document.getElementById('adminPassword').value='';
+  }catch(error){
+    console.error('Admin login failed:',error);
+    if(status) status.textContent='';
+    showAdminAuthError(error?.message||'Invalid admin login.');
+  }
+}
+
+async function restoreAdminSession(){
+  const session=await getAdminSession();
+  if(session?.user){
+    await unlockAdmin(session.user);
+  }
+}
+
+document.addEventListener('DOMContentLoaded',()=>{restoreAdminSession();});
+
+
+let __adminOrders = [];
+
+function formatNaira(value){
+  return '₦' + Number(value||0).toLocaleString('en-NG');
+}
+
+function formatOrderDate(value){
+  if(!value) return '—';
+  const d=new Date(value);
+  if(Number.isNaN(d.getTime())) return '—';
+  return d.toLocaleDateString('en-NG',{day:'2-digit',month:'short',year:'numeric'});
+}
+
+function orderStatusClass(status){
+  const s=String(status||'').toLowerCase();
+  if(s.includes('deliver')) return 'greenbg';
+  if(s.includes('cancel')) return 'danger';
+  if(s.includes('confirm')) return 'blue';
+  return 'amber';
+}
+
+async function loadAdminOrders(){
+  const body=document.getElementById('adminOrdersBody');
+  const summary=document.getElementById('orderSummary');
+  const count=document.getElementById('orderCount');
+  if(body) body.innerHTML='<tr><td colspan="7">Loading...</td></tr>';
+
+  if(!window.DOWA_SUPABASE){
+    if(body) body.innerHTML='<tr><td colspan="7">Supabase is not connected.</td></tr>';
+    return;
+  }
+
+  try{
+    const {data:rows,error}=await window.DOWA_SUPABASE
+      .from('orders')
+      .select('id,order_number,customer_id,customer_name,customer_email,customer_phone,order_status,payment_status,subtotal,delivery_fee,discount_amount,total_amount,created_at,delivery_address,delivery_city,delivery_state,notes')
+      .order('created_at',{ascending:false});
+
+    if(error) throw error;
+
+    const ordersWithItems=[];
+    for(const row of (rows||[])){
+      const {data:customer}=await window.DOWA_SUPABASE
+        .from('customers')
+        .select('id,full_name,email,phone')
+        .eq('id',row.customer_id)
+        .maybeSingle();
+
+      const {data:items}=await window.DOWA_SUPABASE
+        .from('order_items')
+        .select('id,product_id,variant_id,product_name,variant_name,color,sku,quantity,unit_price,line_total,created_at')
+        .eq('order_id',row.id);
+
+      ordersWithItems.push({
+        ...row,
+        customer:customer||{},
+        items:items||[]
+      });
+    }
+
+    __adminOrders=ordersWithItems;
+    renderAdminOrders();
+  }catch(error){
+    console.error('Admin orders load failed:',error);
+    if(body) body.innerHTML='<tr><td colspan="7">Could not load orders. Check the Admin Supabase access policies.</td></tr>';
+    if(summary) summary.textContent='Orders could not be loaded.';
+    if(count) count.textContent='0';
+    showToast('Could not load orders.');
+  }
+}
+
+function renderAdminOrders(){
+  const body=document.getElementById('adminOrdersBody');
+  const summary=document.getElementById('orderSummary');
+  const count=document.getElementById('orderCount');
+  if(!body) return;
+
+  if(!__adminOrders.length){
+    body.innerHTML='<tr><td colspan="7">No orders found.</td></tr>';
+    if(summary) summary.textContent='No customer orders yet.';
+    if(count) count.textContent='0';
+    return;
+  }
+
+  body.innerHTML=__adminOrders.map(o=>{
+    const orderNumber=o.order_number || `#${o.id}`;
+    const customer=o.customer?.full_name || o.customer?.email || 'Customer';
+    const itemCount=(o.items||[]).reduce((sum,i)=>sum+Number(i.quantity||0),0);
+    const status=o.order_status || 'Order Confirmed';
+    return `<tr>
+      <td><b>${escapeHtml(orderNumber)}</b></td>
+      <td>${escapeHtml(customer)}</td>
+      <td>${itemCount}</td>
+      <td>${formatNaira(o.total_amount)}</td>
+      <td><span class="status ${orderStatusClass(status)}">${escapeHtml(status)}</span></td>
+      <td>${formatOrderDate(o.created_at)}</td>
+      <td><button class="action-btn" onclick="openLiveOrderModal(${Number(o.id)})">View</button></td>
+    </tr>`;
+  }).join('');
+
+  if(count) count.textContent=String(__adminOrders.length);
+  if(summary) summary.textContent=`${__adminOrders.length} order${__adminOrders.length===1?'':'s'} from Supabase`;
+}
+
+function openLiveOrderModal(id){
+  const order=__adminOrders.find(o=>Number(o.id)===Number(id));
+  if(!order) return;
+
+  const customer=order.customer||{};
+  const delivery=order.delivery_address || order.shipping_address || {};
+  const items=(order.items||[]).map(i=>`
+    <div style="padding:9px 0;border-bottom:1px solid #e5e0d7">
+      <b>${escapeHtml(i.product_name||'DOWA Product')}</b>
+      <div style="font-size:10px;color:#77736b;margin-top:3px">
+        Qty ${Number(i.quantity||1)} · ${formatNaira(i.unit_price)}${i.variant_name?` · ${escapeHtml(i.variant_name)}`:''}${i.color?` · ${escapeHtml(i.color)}`:''}
+      </div>
+    </div>`).join('');
+
+  openModal(`<h2>Order ${escapeHtml(order.order_number||String(order.id))}</h2>
+    <p>Customer and order details from Supabase.</p>
+    <div class="panel" style="padding:15px;line-height:1.9">
+      <b>Customer:</b> ${escapeHtml(customer.full_name||'—')}<br>
+      <b>Email:</b> ${escapeHtml(customer.email||'—')}<br>
+      <b>Phone:</b> ${escapeHtml(customer.phone||'—')}<br>
+      <b>Order date:</b> ${formatOrderDate(order.created_at)}<br>
+      <b>Total:</b> ${formatNaira(order.total_amount)}
+    </div>
+    <div class="field"><label>Items</label><div class="panel" style="padding:12px">${items||'No items found.'}</div></div>
+    <div class="field"><label>Delivery address</label><div class="panel" style="padding:12px">${escapeHtml(typeof delivery==='string'?delivery:(delivery.address||delivery.address_line||'—'))}</div></div>
+    <div class="field"><label>Order status</label>
+      <select id="liveOrderStatus">
+        ${['Order Confirmed','In Production','Ready for Delivery','Out for Delivery','Delivered','Cancelled'].map(s=>`<option ${String(order.order_status||'')===s?'selected':''}>${s}</option>`).join('')}
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal()">Close</button>
+      <button class="btn dark" onclick="saveLiveOrderStatus(${Number(order.id)})">Save status</button>
+    </div>`);
+}
+
+async function saveLiveOrderStatus(id){
+  const status=document.getElementById('liveOrderStatus')?.value;
+  if(!status) return;
+
+  try{
+    const {error}=await window.DOWA_SUPABASE
+      .from('orders')
+      .update({order_status:status})
+      .eq('id',id);
+    if(error) throw error;
+
+    closeModal();
+    await loadAdminOrders();
+    showToast('Order status updated.');
+  }catch(error){
+    console.error('Order status update failed:',error);
+    showToast(error?.message || 'Order status update failed. Check Admin Supabase permissions.');
+  }
+}
+
+
+function openTeamModal(){openModal(`<h2>Add team member</h2><p>Create a staff account and assign a role. Real authentication will be connected in the backend phase.</p><div class="form-grid"><div class="field"><label>Full name</label><input id="tName" placeholder="Staff name"></div><div class="field"><label>Email</label><input id="tEmail" type="email" placeholder="staff@dowahomes.com"></div><div class="field"><label>Role</label><select id="tRole"><option>Customer Service</option><option>Inventory Manager</option><option>Order Manager</option><option>Support Manager</option></select></div><div class="field"><label>Status</label><select id="tStatus"><option>Active</option><option>Suspended</option></select></div><div class="field full"><label>Company overview access</label><select id="tOverview"><option>No — staff workspace only</option><option>Yes — CEO granted access</option></select></div></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn dark" onclick="saveTeam()">Add team member</button></div>`)}
+function saveTeam(){const n=document.getElementById('tName').value.trim();if(!n){showToast('Please enter the staff name.');return}closeModal();showToast(`${n} added to the team.`)}
+function openTaskModal(){openModal(`<h2>Create task</h2><p>Assign a task to a team member.</p><div class="form-grid"><div class="field full"><label>Task</label><input id="taskTitle" placeholder="e.g. Follow up with Jane Doe"></div><div class="field"><label>Assignee</label><select id="taskAssignee"><option>Adam</option><option>Sarah</option><option>David</option><option>Michael</option></select></div><div class="field"><label>Priority</label><select id="taskPriority"><option>Normal</option><option>High</option><option>Urgent</option></select></div><div class="field full"><label>Notes</label><textarea id="taskNotes"></textarea></div></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn dark" onclick="saveTask()">Create task</button></div>`)}
+function saveTask(){const t=document.getElementById('taskTitle').value.trim();if(!t){showToast('Please enter a task.');return}closeModal();showToast('Task created and assigned.')} 
+function openSupportModal(customer,enquiry,assigned,status){openModal(`<h2>${customer}</h2><p>${enquiry}</p><div class="field"><label>Assign to</label><select id="sAssign"><option ${assigned==='Adam'?'selected':''}>Adam</option><option ${assigned==='Sarah'?'selected':''}>Sarah</option><option ${assigned==='Michael'?'selected':''}>Michael</option><option ${assigned==='Unassigned'?'selected':''}>Unassigned</option></select></div><div class="field"><label>Status</label><select id="sStatus"><option ${status==='Open'?'selected':''}>Open</option><option ${status==='Waiting'?'selected':''}>Waiting</option><option>Resolved</option></select></div><div class="field"><label>Reply</label><textarea id="sReply" placeholder="Write a reply to the customer..."></textarea></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button><button class="btn dark" onclick="saveSupport()">Save & reply</button></div>`)}
+function saveSupport(){closeModal();showToast('Support conversation updated.')} 
+function openOrderModal(id){openModal(`<h2>Order ${id}</h2><p>Demo order detail</p><div class="panel" style="padding:15px"><b>Customer:</b> ${id==='DOWA-10492'?'Jane Doe':'John Ade'}<br><br><b>Product:</b> ${id==='DOWA-10492'?'L-Shape Cloud Sofa':'Ayo 3-Seater Sofa'}<br><br><b>Delivery:</b> Lagos<br><br><b>Payment:</b> Paid</div><div class="field"><label>Order status</label><select id="oStatus"><option>Processing</option><option>Confirmed</option><option>In Production</option><option>Out for delivery</option><option>Delivered</option></select></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button><button class="btn dark" onclick="closeModal();showToast('Order status updated.')">Save status</button></div>`)}
+function openStaffAction(name,role){openModal(`<h2>${name}</h2><p>${role}</p><div class="field"><label>Role</label><select id="roleChange"><option ${role==='Customer Service'?'selected':''}>Customer Service</option><option ${role==='Inventory Manager'?'selected':''}>Inventory Manager</option><option ${role==='Order Manager'?'selected':''}>Order Manager</option><option>Support Manager</option></select></div><div class="field"><label>Account status</label><select><option>Active</option><option>Suspended</option></select></div><div class="modal-actions"><button class="btn danger" onclick="closeModal();showToast('${name} account suspended in demo.')">Suspend</button><button class="btn dark" onclick="closeModal();showToast('${name} permissions updated.')">Save permissions</button></div>`)}
+function filterCustomers(q){const rows=document.querySelectorAll('#customers tbody tr');q=q.toLowerCase();rows.forEach(r=>r.style.display=r.textContent.toLowerCase().includes(q)?'':'none')}
+function exportReport(){downloadCSV('dowa-september-report.csv','Metric,Value\nVisitors,4820\nEnquiries,246\nOrders,72\nCustomers,386\nRevenue,28400000');}
+function exportPayments(){downloadCSV('dowa-payments.csv','Reference,Order,Customer,Amount,Status\nPSK-90218,DOWA-10492,Jane Doe,850000,Paid\nPSK-90217,DOWA-10491,John Ade,490000,Pending');}
+function downloadCSV(name,text){const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(text);a.download=name;a.click();showToast('Export downloaded.')} 
+function saveSettings(){showToast('Settings saved in demo mode.')} 
+// Make the top notification control functional without changing the visual layout.
+document.querySelector('.top').addEventListener('click',e=>{if(e.target.textContent==='🔔')openModal('<h2>Notifications</h2><p>3 new order/support notifications.</p><div class="panel" style="padding:14px;line-height:2"><div>New order DOWA-10492</div><div>Jane Doe replied to support</div><div>Cloud King Bedframe is out of stock</div></div><div class="modal-actions"><button class="btn dark" onclick="closeModal()">Done</button></div>')});
+function openTaskDetail(task,assignee){openModal(`<h2>${task}</h2><p>Assigned to ${assignee}.</p><div class="field"><label>Status</label><select><option>Open</option><option>In progress</option><option>Completed</option></select></div><div class="field"><label>Notes</label><textarea placeholder="Task notes..."></textarea></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button><button class="btn dark" onclick="closeModal();showToast('Task updated.')">Save task</button></div>`)}
+function exportAcquisition(){downloadCSV('dowa-customer-acquisition.csv','Source,Customers,Share\nInstagram,118,30.6%\nGoogle,82,21.2%\nWhatsApp,61,15.8%\nTikTok,43,11.1%\nReferral,39,10.1%\nFacebook,24,6.2%\nDirect,19,4.9%')}
+function applyRole(role,overview=false){window.__role=role;window.__overview=overview;const labels={CEO:'CEO · Super Admin','Customer Service':'Customer Service','Inventory Manager':'Inventory Manager','Order Manager':'Order Manager','Support Manager':'Support Manager'};document.querySelector('.brand small').textContent=labels[role]||role;document.querySelector('.user small').textContent=labels[role]||role;const all=document.querySelectorAll('.nav button');all.forEach(b=>b.style.display='block');const hide=['team','analytics','payments','reviews','settings','acquisition'];if(role!=='CEO')hide.forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display=overview?'block':'none'});if(role==='Customer Service'){['products','payments'].forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display='none'})}if(role==='Inventory Manager'){['support','customers','payments','reviews'].forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display='none'})}if(role==='Order Manager'){['products','support','team','analytics','payments','reviews','settings'].forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display='none'})}if(role==='Support Manager'){['products','payments','reviews'].forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display='none'})}const dash=[...all].find(x=>x.getAttribute('onclick')?.includes("'dashboard'"));if(role!=='CEO'&&!overview){if(dash)dash.style.display='none';showSection('tasks')}else{if(dash)dash.style.display='block';showSection(role==='CEO'?'dashboard':'tasks')}}
+async function adminLogout(){await window.DOWA_SUPABASE.auth.signOut();location.reload();}
+function openRoleSwitcher(){openModal(`<h2>Preview staff access</h2><p>The CEO can decide whether a staff member gets company overview access. Staff without that permission open directly into their role workspace.</p><div class="field"><label>Role</label><select id="previewRole"><option>CEO</option><option>Customer Service</option><option>Inventory Manager</option><option>Order Manager</option><option>Support Manager</option></select></div><div class="field"><label>Company overview</label><select id="previewOverview"><option value="no">No — staff workspace only</option><option value="yes">Yes — CEO granted access</option></select></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn dark" onclick="applyRole(document.getElementById('previewRole').value,document.getElementById('previewOverview').value==='yes');closeModal();showToast('Role preview applied.')">Preview role</button></div>`)}
+</script></body></html>
