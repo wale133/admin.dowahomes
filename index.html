@@ -1,7 +1,7 @@
 <!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DOWA Homes Admin Demo</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f3ef;color:#1d1c19;font:13px Arial,sans-serif}.app{display:none;min-height:100vh}.app.admin-unlocked{display:flex}.side{width:245px;background:#171716;color:#fff;position:fixed;inset:0 auto 0 0;padding:22px 16px}.brand{display:flex;gap:10px;align-items:center;padding:0 8px 26px}.logo{width:38px;height:38px;background:#fff;color:#171716;border-radius:11px;display:grid;place-items:center;font-weight:800}.brand small{display:block;color:#99958d;font-size:10px;margin-top:2px}.label{font-size:9px;color:#77746d;letter-spacing:.14em;text-transform:uppercase;padding:12px 10px 7px}.nav button{display:block;width:100%;border:0;background:none;color:#bdb9b1;text-align:left;padding:11px 12px;border-radius:9px;margin:3px 0}.nav button.active,.nav button:hover{background:#2b2b28;color:#fff}.badge{float:right;background:#8e4b45;border-radius:20px;padding:2px 6px;font-size:8px}.user{position:absolute;bottom:18px;left:20px;right:20px;border-top:1px solid #2d2d2a;padding-top:13px;display:flex;gap:9px}.avatar{width:36px;height:36px;border-radius:50%;background:#d8d0c4;color:#282621;display:grid;place-items:center;font-weight:bold;font-size:11px}.main{margin-left:245px;flex:1}.top{height:72px;background:#fffdf9;border-bottom:1px solid #e5e0d7;display:flex;justify-content:space-between;align-items:center;padding:0 30px}.content{padding:28px;max-width:1450px;margin:auto}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#77736b;margin-bottom:7px}h1{margin:0;font-size:29px;letter-spacing:-.04em}.sub{color:#77736b;font-size:12px;margin:8px 0 0}.btn{padding:10px 13px;border:1px solid #e1dbd1;background:#fffdf9;border-radius:9px}.dark{background:#171716;color:#fff}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}.card,.panel{background:#fffdf9;border:1px solid #e5e0d7;border-radius:14px}.card{padding:16px}.metric{font-size:23px;font-weight:bold;margin:8px 0 3px}.muted{font-size:10px;color:#77736b}.green{color:#416852;font-size:9px}.grid{display:grid;grid-template-columns:1.5fr .9fr;gap:15px;margin-top:15px}.ph{padding:15px 17px;border-bottom:1px solid #e5e0d7;display:flex;justify-content:space-between}.ph h2{font-size:13px;margin:0}.chart{height:190px;margin:18px;display:flex;align-items:end;gap:13px;border-bottom:1px solid #ddd7ce}.bar{flex:1;background:#c7bfb4;border-radius:5px 5px 0 0}.bar:last-child{background:#292824}.funnel{padding:18px}.frow{display:flex;align-items:center;gap:9px;margin:15px 0}.frow label{width:70px;color:#77736b;font-size:10px}.track{height:11px;background:#ece8e1;border-radius:20px;flex:1}.fill{height:100%;background:#68665f;border-radius:20px}.num{width:40px;text-align:right;font-size:10px;font-weight:bold}.lower{display:grid;grid-template-columns:1.5fr 1fr;gap:15px;margin-top:15px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px 15px;border-bottom:1px solid #e5e0d7;text-align:left;font-size:10px;white-space:nowrap}.table th{font-size:8px;color:#958f87;text-transform:uppercase}.status{padding:5px 8px;border-radius:20px;font-size:8px}.amber{background:#f3eadb;color:#8a642f}.greenbg{background:#e6eee9;color:#41634f}.blue{background:#e7edf3;color:#4a6077}.staff{padding:7px 16px}.staffrow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #e5e0d7}.staffleft{display:flex;gap:9px;align-items:center}.role{font-size:8px;color:#77736b;margin-top:2px}.page{display:none}.page.active{display:block}.demo-note{background:#eeeae2;border:1px solid #dfd9cf;padding:10px 13px;border-radius:9px;font-size:10px;color:#6d685f;margin-bottom:16px}
+*{box-sizing:border-box}body{margin:0;background:#f5f3ef;color:#1d1c19;font:13px Arial,sans-serif}.app{display:none;min-height:100vh}.app.admin-unlocked{display:flex}.side{width:245px;background:#171716;color:#fff;position:fixed;inset:0 auto 0 0;padding:22px 16px}.brand{display:flex;gap:10px;align-items:center;padding:0 8px 26px}.logo{width:38px;height:38px;background:#fff;color:#171716;border-radius:11px;display:grid;place-items:center;font-weight:800}.brand small{display:block;color:#99958d;font-size:10px;margin-top:2px}.label{font-size:9px;color:#77746d;letter-spacing:.14em;text-transform:uppercase;padding:12px 10px 7px}.nav button{display:block;width:100%;border:0;background:none;color:#bdb9b1;text-align:left;padding:11px 12px;border-radius:9px;margin:3px 0}.nav button.active,.nav button:hover{background:#2b2b28;color:#fff}.badge{display:none;float:right;background:#8e4b45;border-radius:20px;padding:2px 6px;font-size:8px}.badge.show{display:inline-block}.user{position:absolute;bottom:18px;left:20px;right:20px;border-top:1px solid #2d2d2a;padding-top:13px;display:flex;gap:9px}.avatar{width:36px;height:36px;border-radius:50%;background:#d8d0c4;color:#282621;display:grid;place-items:center;font-weight:bold;font-size:11px}.main{margin-left:245px;flex:1}.top{height:72px;background:#fffdf9;border-bottom:1px solid #e5e0d7;display:flex;justify-content:space-between;align-items:center;padding:0 30px}.content{padding:28px;max-width:1450px;margin:auto}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#77736b;margin-bottom:7px}h1{margin:0;font-size:29px;letter-spacing:-.04em}.sub{color:#77736b;font-size:12px;margin:8px 0 0}.btn{padding:10px 13px;border:1px solid #e1dbd1;background:#fffdf9;border-radius:9px}.dark{background:#171716;color:#fff}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}.card,.panel{background:#fffdf9;border:1px solid #e5e0d7;border-radius:14px}.card{padding:16px}.metric{font-size:23px;font-weight:bold;margin:8px 0 3px}.muted{font-size:10px;color:#77736b}.green{color:#416852;font-size:9px}.grid{display:grid;grid-template-columns:1.5fr .9fr;gap:15px;margin-top:15px}.ph{padding:15px 17px;border-bottom:1px solid #e5e0d7;display:flex;justify-content:space-between}.ph h2{font-size:13px;margin:0}.chart{height:190px;margin:18px;display:flex;align-items:end;gap:13px;border-bottom:1px solid #ddd7ce}.bar{flex:1;background:#c7bfb4;border-radius:5px 5px 0 0}.bar:last-child{background:#292824}.funnel{padding:18px}.frow{display:flex;align-items:center;gap:9px;margin:15px 0}.frow label{width:70px;color:#77736b;font-size:10px}.track{height:11px;background:#ece8e1;border-radius:20px;flex:1}.fill{height:100%;background:#68665f;border-radius:20px}.num{width:40px;text-align:right;font-size:10px;font-weight:bold}.lower{display:grid;grid-template-columns:1.5fr 1fr;gap:15px;margin-top:15px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px 15px;border-bottom:1px solid #e5e0d7;text-align:left;font-size:10px;white-space:nowrap}.table th{font-size:8px;color:#958f87;text-transform:uppercase}.status{padding:5px 8px;border-radius:20px;font-size:8px}.amber{background:#f3eadb;color:#8a642f}.greenbg{background:#e6eee9;color:#41634f}.blue{background:#e7edf3;color:#4a6077}.staff{padding:7px 16px}.staffrow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #e5e0d7}.staffleft{display:flex;gap:9px;align-items:center}.role{font-size:8px;color:#77736b;margin-top:2px}.page{display:none}.page.active{display:block}.demo-note{background:#eeeae2;border:1px solid #dfd9cf;padding:10px 13px;border-radius:9px;font-size:10px;color:#6d685f;margin-bottom:16px}
 @media(max-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}.grid,.lower{grid-template-columns:1fr}}@media(max-width:680px){.side{display:none}.main{margin-left:0}.content{padding:18px 12px}.head{display:block}.head .btn{margin-top:12px}.cards{grid-template-columns:1fr 1fr}.tablewrap{overflow:auto}.table{min-width:700px}}
 
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.48);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000}.modal-overlay.show{display:flex}.modal-box{width:min(620px,100%);max-height:90vh;overflow:auto;background:#fffdf9;border-radius:16px;border:1px solid #e5e0d7;box-shadow:0 20px 60px rgba(0,0,0,.2);padding:22px}.modal-box h2{margin:0 0 6px;font-size:20px}.modal-box p{color:#77736b;font-size:11px;line-height:1.6}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px;margin-top:12px}.field.full{grid-column:1/-1}.field label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#77736b}.field input,.field select,.field textarea{width:100%;border:1px solid #ded8cf;background:#fff;padding:11px;border-radius:8px;font:12px Arial}.field textarea{min-height:90px;resize:vertical}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.action-btn{border:1px solid #ded8cf;background:#fffdf9;border-radius:7px;padding:7px 9px;font-size:9px;cursor:pointer}.action-btn.dark{background:#171716;color:#fff}.clickable{cursor:pointer}.toast{position:fixed;right:22px;bottom:22px;background:#171716;color:#fff;padding:12px 15px;border-radius:10px;font-size:11px;z-index:1200;opacity:0;transform:translateY(10px);transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.search-input{border:1px solid #ded8cf;border-radius:8px;padding:9px 10px;background:#fffdf9;font-size:11px}.danger{color:#914b45!important}.source-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.source-grid>div{border:1px solid #e5e0d7;border-radius:10px;padding:13px;background:#fff}.source-grid b{display:block;font-size:11px}.source-grid span{display:block;color:#77736b;font-size:9px;margin-top:6px}.image-preview{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.image-preview img{width:82px;height:72px;object-fit:cover;border-radius:8px;border:1px solid #ded8cf;background:#f2eee8}.size-picker{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}.size-chip{display:flex!important;flex-direction:row!important;align-items:center;gap:6px;border:1px solid #ded8cf;background:#fff;padding:8px 10px;border-radius:8px;font-size:10px!important;text-transform:none!important;letter-spacing:0!important;color:#1d1c19!important;cursor:pointer}.size-chip input{width:auto!important}.size-chip:has(input:checked){background:#171716;color:#fff!important;border-color:#171716}.size-chip:has(input:checked) span{color:#fff}
@@ -36,10 +36,10 @@
 <aside class="side"><div class="brand"><div class="logo">D</div><div><b>DOWA Homes</b><small>CEO Control Center</small></div></div>
 <div class="label">Overview</div><div class="nav">
 <button class="active" onclick="show('dashboard',this)">⌂ &nbsp; Dashboard</button>
-<button onclick="show('orders',this)">▣ &nbsp; Orders <span class="badge">8</span></button>
+<button onclick="show('orders',this)">▣ &nbsp; Orders <span class="badge" id="ordersNavBadge">0</span></button>
 <button onclick="show('products',this)">◇ &nbsp; Products & Inventory</button>
 <button onclick="show('customers',this)">♙ &nbsp; Customers</button><button onclick="show('tasks',this)">✓ &nbsp; Tasks</button>
-<button onclick="show('support',this)">◌ &nbsp; Support & Enquiries <span class="badge">14</span></button>
+<button onclick="show('support',this)">◌ &nbsp; Support & Enquiries <span class="badge" id="supportNavBadge">0</span></button>
 <button onclick="show('team',this)">♧ &nbsp; Team</button>
 <button onclick="show('analytics',this)">▥ &nbsp; Analytics & Reports</button><button onclick="show('acquisition',this)">⌁ &nbsp; Customer Acquisition</button></div>
 <div class="label">Management</div><div class="nav">
@@ -47,13 +47,13 @@
 <div class="user"><div class="avatar">WO</div><div><b style="font-size:11px">Wale Olajide</b><small style="display:block;color:#8e8a82;font-size:8px">CEO · Super Admin</small></div></div></aside>
 <main class="main"><header class="top"><span class="muted"><b style="color:#1d1c19">DOWA Homes</b> / <span id="crumb">Dashboard</span></span><span style="display:flex;gap:9px;align-items:center"><button class="notification-bell-admin" onclick="openAdminNotifications()" title="Notifications" aria-label="Notifications">🔔<span class="notification-badge-admin" id="adminNotificationBadge">0</span></button><button class="action-btn" onclick="openRoleSwitcher()">Preview role</button><span class="avatar">WO</span><b style="font-size:10px">Wale</b></span></header>
 <section class="content">
-<div id="dashboard" class="page active"><div class="demo-note">DEMO MODE — These figures are sample data to show how the real dashboard will look after Supabase and analytics are connected.</div>
-<div class="head"><div><div class="eyebrow">CEO control center · September 2026</div><h1>Good afternoon, Wale.</h1><p class="sub">Your complete overview of DOWA Homes.</p></div><div><button class="btn" onclick="exportReport()">Export report</button> <button class="btn dark" onclick="showSection('tasks')">View tasks</button></div></div>
-<div class="cards"><div class="card"><span class="muted">Website visitors</span><div class="metric">4,820</div><span class="green">↑ 18.4% vs August</span></div><div class="card"><span class="muted">Enquiries</span><div class="metric">246</div><span class="green">↑ 12.8% vs August</span></div><div class="card"><span class="muted">Orders</span><div class="metric">72</div><span class="green">↑ 9.1% vs August</span></div><div class="card"><span class="muted">Customers</span><div class="metric">386</div><span class="green">94 new this month</span></div><div class="card"><span class="muted">Revenue</span><div class="metric">₦28.4M</div><span class="green">↑ 16.7% vs August</span></div></div>
-<div class="grid"><div class="panel"><div class="ph"><h2>Website visitors</h2><span class="muted">Last 6 months</span></div><div class="chart"><div class="bar" style="height:35%"></div><div class="bar" style="height:44%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:63%"></div><div class="bar" style="height:76%"></div><div class="bar" style="height:92%"></div></div><div style="display:flex;justify-content:space-around;color:#928d84;font-size:9px;padding:0 10px 14px"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></div>
-<div class="panel"><div class="ph"><h2>Customer journey</h2><span class="muted">This month</span></div><div class="funnel"><div class="frow"><label>Visitors</label><div class="track"><div class="fill" style="width:100%"></div></div><div class="num">4,820</div></div><div class="frow"><label>Enquiries</label><div class="track"><div class="fill" style="width:61%"></div></div><div class="num">246</div></div><div class="frow"><label>Add to cart</label><div class="track"><div class="fill" style="width:48%"></div></div><div class="num">180</div></div><div class="frow"><label>Checkout</label><div class="track"><div class="fill" style="width:31%"></div></div><div class="num">82</div></div><div class="frow"><label>Orders</label><div class="track"><div class="fill" style="width:24%"></div></div><div class="num">72</div></div></div></div></div>
-<div class="lower"><div class="panel"><div class="ph"><h2>Recent orders</h2><button class="action-btn" onclick="showSection('orders')">View all →</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th><th>Assigned</th></tr></thead><tbody><tr><td>DOWA-10492</td><td>Jane Doe</td><td>₦850,000</td><td><span class="status amber">Processing</span></td><td>Michael</td><td><button class="action-btn" onclick="openOrderModal('DOWA-10492')">View</button></td></tr><tr><td>DOWA-10491</td><td>John Ade</td><td>₦490,000</td><td><span class="status greenbg">Confirmed</span></td><td>Sarah</td></tr><tr><td>DOWA-10490</td><td>Amaka Obi</td><td>₦720,000</td><td><span class="status blue">Out for delivery</span></td><td>Michael</td></tr></tbody></table></div></div>
-<div class="panel"><div class="ph"><h2>Team activity</h2><span class="muted">Today</span></div><div class="staff"><div class="staffrow"><div class="staffleft"><div class="avatar">AD</div><div><b style="font-size:10px">Adam</b><div class="role">Customer Service</div></div></div><b>12 <small class="muted">open</small></b></div><div class="staffrow"><div class="staffleft"><div class="avatar">SA</div><div><b style="font-size:10px">Sarah</b><div class="role">Customer Service</div></div></div><b>8 <small class="muted">open</small></b></div><div class="staffrow"><div class="staffleft"><div class="avatar">DA</div><div><b style="font-size:10px">David</b><div class="role">Inventory Manager</div></div></div><b>4 <small class="muted">tasks</small></b></div><div class="staffrow"><div class="staffleft"><div class="avatar">MI</div><div><b style="font-size:10px">Michael</b><div class="role">Order Manager</div></div></div><b>7 <small class="muted">orders</small></div></div></div></div></div>
+<div id="dashboard" class="page active"><div class="demo-note" id="dashboardConnectionNote">CONNECTED MODE — Dashboard figures are loaded from DOWA Homes Supabase data. Website visitor tracking and checkout-event tracking are not yet stored, so those figures are shown as unavailable rather than sample data.</div>
+<div class="head"><div><div class="eyebrow" id="dashboardEyebrow">CEO control center</div><h1>Good afternoon, Wale.</h1><p class="sub">Your complete overview of DOWA Homes.</p></div><div><button class="btn" onclick="exportReport()">Export report</button> <button class="btn dark" onclick="showSection('tasks')">View tasks</button></div></div>
+<div class="cards"><div class="card"><span class="muted">Website visitors</span><div class="metric" id="dashVisitors">—</div><span class="green" id="dashVisitorsNote">Visitor tracking not connected</span></div><div class="card"><span class="muted">Enquiries</span><div class="metric" id="dashEnquiries">—</div><span class="green" id="dashEnquiriesNote">Loading...</span></div><div class="card"><span class="muted">Orders</span><div class="metric" id="dashOrders">—</div><span class="green" id="dashOrdersNote">Loading...</span></div><div class="card"><span class="muted">Customers</span><div class="metric" id="dashCustomers">—</div><span class="green" id="dashCustomersNote">Loading...</span></div><div class="card"><span class="muted">Revenue</span><div class="metric" id="dashRevenue">—</div><span class="green" id="dashRevenueNote">Loading...</span></div></div>
+<div class="grid"><div class="panel"><div class="ph"><h2>Website visitors</h2><span class="muted" id="dashboardVisitorsPeriod">Last 6 months</span></div><div class="chart" id="dashboardVisitorChart"><div class="bar" style="height:20%"></div><div class="bar" style="height:20%"></div><div class="bar" style="height:20%"></div><div class="bar" style="height:20%"></div><div class="bar" style="height:20%"></div><div class="bar" style="height:20%"></div></div><div id="dashboardVisitorLabels" style="display:flex;justify-content:space-around;color:#928d84;font-size:9px;padding:0 10px 14px"><span>—</span><span>—</span><span>—</span><span>—</span><span>—</span><span>—</span></div></div>
+<div class="panel"><div class="ph"><h2>Customer journey</h2><span class="muted">This month</span></div><div class="funnel"><div class="frow"><label>Visitors</label><div class="track"><div class="fill" id="dashFunnelVisitorsFill" style="width:0%"></div></div><div class="num" id="dashFunnelVisitors">—</div></div><div class="frow"><label>Enquiries</label><div class="track"><div class="fill" id="dashFunnelEnquiriesFill" style="width:0%"></div></div><div class="num" id="dashFunnelEnquiries">—</div></div><div class="frow"><label>Add to cart</label><div class="track"><div class="fill" id="dashFunnelCartFill" style="width:0%"></div></div><div class="num" id="dashFunnelCart">—</div></div><div class="frow"><label>Checkout</label><div class="track"><div class="fill" id="dashFunnelCheckoutFill" style="width:0%"></div></div><div class="num" id="dashFunnelCheckout">—</div></div><div class="frow"><label>Orders</label><div class="track"><div class="fill" id="dashFunnelOrdersFill" style="width:0%"></div></div><div class="num" id="dashFunnelOrders">—</div></div></div></div></div>
+<div class="lower"><div class="panel"><div class="ph"><h2>Recent orders</h2><button class="action-btn" onclick="showSection('orders')">View all →</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th><th>Date</th></tr></thead><tbody id="dashboardRecentOrdersBody"><tr><td colspan="5">Loading...</td></tr></tbody></table></div></div>
+<div class="panel"><div class="ph"><h2>Team activity</h2><span class="muted">Today</span></div><div class="staff" id="dashboardTeamActivity"><div class="staffrow"><div class="staffleft"><div class="avatar">—</div><div><b style="font-size:10px">Loading team</b><div class="role">Supabase</div></div></div><b>—</b></div></div></div></div></div>
 <div id="orders" class="page">
 <div class="demo-note">CONNECTED MODE — Orders are read from Supabase. Payment gateway connection will be added later; this page manages the real order records and status.</div>
 <div class="head"><div><h1>Orders</h1><p class="sub" id="orderSummary">Loading orders...</p></div><div><button class="btn" onclick="loadAdminOrders()">↻ Refresh</button></div></div>
@@ -70,9 +70,32 @@
 <div class="tablewrap"><table class="table"><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Action</th></tr></thead>
 <tbody id="adminProductsBody"><tr><td colspan="6">Loading...</td></tr></tbody></table></div>
 </div></div>
-<div id="customers" class="page"><div class="demo-note">DEMO PAGE — Customer profiles, contact details, order history and activity will appear here.</div><h1>Customers</h1><p class="sub">386 customers · 94 new this month · 23 returning</p><div class="panel" style="margin-top:18px"><div class="ph"><h2>Customer directory</h2><input class="search-input" placeholder="Search customers..." oninput="filterCustomers(this.value)"></div><table class="table"><thead><tr><th>Customer</th><th>Email</th><th>Orders</th><th>Spent</th><th>Last active</th></tr></thead><tbody><tr><td>Jane Doe</td><td>jane@example.com</td><td>3</td><td>₦1.62M</td><td>Today</td></tr><tr><td>John Ade</td><td>john@example.com</td><td>1</td><td>₦490K</td><td>Yesterday</td></tr></tbody></table></div><div class="panel" style="margin-top:15px"><div class="ph"><h2>Where customers came from</h2><span class="muted">September 2026</span></div><div style="padding:17px"><div class="source-grid"><div><b>Instagram</b><span>118 customers · 30.6%</span></div><div><b>Google</b><span>82 customers · 21.2%</span></div><div><b>WhatsApp</b><span>61 customers · 15.8%</span></div><div><b>TikTok</b><span>43 customers · 11.1%</span></div><div><b>Referral</b><span>39 customers · 10.1%</span></div><div><b>Facebook</b><span>24 customers · 6.2%</span></div><div><b>Direct</b><span>19 customers · 4.9%</span></div></div></div></div></div>
+<div id="customers" class="page"><div class="demo-note">CONNECTED MODE — Customer profiles and account activity are read directly from Supabase.</div><h1>Customers</h1><p class="sub" id="customerSummary">Loading customers...</p><div class="panel" style="margin-top:18px"><div class="ph"><h2>Customer directory</h2><input id="customerSearch" class="search-input" placeholder="Search customers..." oninput="filterCustomers(this.value)"></div><div class="toolbar" style="padding:0 15px 14px"><select id="customerMonthFilter" class="search-input" onchange="applyCustomerFilters()"><option value="all">All joined months</option></select><select id="customerOrderFilter" class="search-input" onchange="applyCustomerFilters()"><option value="all">All orders</option><option value="has_orders">Has orders</option><option value="no_orders">No orders</option><option value="1_plus">1+ orders</option><option value="5_plus">5+ orders</option><option value="10_plus">10+ orders</option></select><select id="customerActivityFilter" class="search-input" onchange="applyCustomerFilters()"><option value="all">All activity</option><option value="today">Active today</option><option value="7_days">Active in 7 days</option><option value="30_days">Active in 30 days</option><option value="inactive_30">Inactive 30+ days</option></select><button class="action-btn" onclick="clearCustomerFilters()">Clear filters</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Customer</th><th>Email</th><th>Phone</th><th>Orders</th><th>Spent</th><th>Joined</th><th>Last active</th></tr></thead><tbody id="adminCustomersBody"><tr><td colspan="7">Loading...</td></tr></tbody></table></div></div><div class="panel" style="margin-top:15px"><div class="ph"><h2>Where customers came from</h2><span class="muted">September 2026</span></div><div style="padding:17px"><div class="source-grid"><div><b>Instagram</b><span>Coming with acquisition tracking</span></div><div><b>Google</b><span>Coming with acquisition tracking</span></div><div><b>WhatsApp</b><span>Coming with acquisition tracking</span></div><div><b>TikTok</b><span>Coming with acquisition tracking</span></div><div><b>Referral</b><span>Coming with acquisition tracking</span></div><div><b>Facebook</b><span>Coming with acquisition tracking</span></div><div><b>Direct</b><span>Coming with acquisition tracking</span></div></div></div></div></div>
 <div id="support" class="page"><div class="demo-note">CONNECTED MODE — Customer support conversations and messages are read directly from Supabase.</div><h1>Support & Enquiries</h1><p class="sub" id="supportSummary">Loading support conversations...</p><div class="panel" style="margin-top:18px"><div class="ph"><h2>Support inbox</h2><button class="action-btn" onclick="loadAdminSupport()">↻ Refresh</button></div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:0 0 14px"><input id="supportSearch" type="search" placeholder="Search customer, email or subject..." oninput="filterAdminSupport()" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #ded9d0;border-radius:4px;font:inherit;background:#fff"><select id="supportStatusFilter" onchange="filterAdminSupport()" style="padding:10px 12px;border:1px solid #ded9d0;border-radius:4px;background:#fff;font:inherit"><option value="all">All statuses</option><option value="New Message">New Message</option><option value="Read — Awaiting Reply">Read — Awaiting Reply</option><option value="Replied">Replied</option><option value="Resolved">Resolved</option></select></div><div class="tablewrap"><table class="table"><thead><tr><th>Customer</th><th>Subject</th><th>Status</th><th>Last message</th><th>Action</th></tr></thead><tbody id="adminSupportBody"><tr><td colspan="5">Loading...</td></tr></tbody></table></div></div></div>
-<div id="team" class="page"><div class="demo-note">DEMO PAGE — This is where the CEO creates staff accounts, assigns roles/permissions and assigns work.</div><h1>Team</h1><p class="sub">4 active staff members</p><div class="panel" style="margin-top:18px"><div class="ph"><h2>Team members</h2><button class="btn dark" onclick="openTeamModal()">＋ Add team member</button></div><div class="staff"><div class="staffrow"><div class="staffleft"><div class="avatar">AD</div><div><b>Adam</b><div class="role">Customer Service · 12 enquiries</div></div></div><span class="status greenbg">Active</span></div><div class="staffrow"><div class="staffleft"><div class="avatar">SA</div><div><b>Sarah</b><div class="role">Customer Service · 8 enquiries</div></div></div><span class="status greenbg">Active</span></div><div class="staffrow"><div class="staffleft"><div class="avatar">DA</div><div><b>David</b><div class="role">Inventory Manager · 4 tasks</div></div></div><span class="status greenbg">Active</span></div></div></div></div>
+<div id="team" class="page">
+<div class="demo-note">CONNECTED MODE — Team members, custom roles and permissions are read from Supabase. Only the CEO can manage roles and team access.</div>
+<div class="head">
+  <div><h1>Team</h1><p class="sub" id="teamSummary">Loading team members...</p></div>
+  <div class="toolbar">
+    <button class="btn" onclick="loadAdminTeam()">↻ Refresh</button>
+    <button class="btn dark" onclick="openRoleModal()">＋ Create role</button>
+  </div>
+</div>
+<div class="panel" style="margin-top:18px">
+  <div class="ph"><h2>Team members</h2><button class="action-btn" onclick="openTeamModal()">＋ Invite team member</button></div>
+  <div class="tablewrap"><table class="table">
+    <thead><tr><th>Staff member</th><th>Email</th><th>Role</th><th>Status</th><th>Joined</th><th>Action</th></tr></thead>
+    <tbody id="adminTeamBody"><tr><td colspan="6">Loading...</td></tr></tbody>
+  </table></div>
+</div>
+<div class="panel" style="margin-top:15px">
+  <div class="ph"><h2>Roles & permissions</h2><span class="muted" id="roleCount">0 roles</span></div>
+  <div class="tablewrap"><table class="table">
+    <thead><tr><th>Role</th><th>Description</th><th>Type</th><th>Permissions</th><th>Status</th><th>Action</th></tr></thead>
+    <tbody id="adminRolesBody"><tr><td colspan="6">Loading...</td></tr></tbody>
+  </table></div>
+</div>
+</div>
 <div id="analytics" class="page"><div class="demo-note">DEMO PAGE — Monthly analytics will combine website traffic, enquiries, customers, carts, checkout, orders and revenue.</div><h1>Analytics & Reports</h1><p class="sub">September 2026</p><div class="cards" style="margin-top:18px"><div class="card"><span class="muted">Visitors</span><div class="metric">4,820</div></div><div class="card"><span class="muted">Enquiries</span><div class="metric">246</div></div><div class="card"><span class="muted">Orders</span><div class="metric">72</div></div><div class="card"><span class="muted">Revenue</span><div class="metric">₦28.4M</div></div></div></div>
 <div id="payments" class="page"><div class="head"><div><h1>Payments</h1><p class="sub">₦28.4M paid · ₦1.8M pending · ₦420K refunded.</p></div><button class="btn" onclick="exportPayments()">Export payments</button></div><div class="panel" style="margin-top:18px"><div class="ph"><h2>Recent payments</h2><span class="muted">September 2026</span></div><table class="table"><thead><tr><th>Reference</th><th>Order</th><th>Customer</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody><tr><td>PSK-90218</td><td>DOWA-10492</td><td>Jane Doe</td><td>₦850,000</td><td><span class="status greenbg">Paid</span></td><td><button class="action-btn" onclick="showToast('Payment details opened for PSK-90218')">View</button></td></tr><tr><td>PSK-90217</td><td>DOWA-10491</td><td>John Ade</td><td>₦490,000</td><td><span class="status amber">Pending</span></td><td><button class="action-btn" onclick="showToast('Payment reminder queued for John Ade')">Remind</button></td></tr></tbody></table></div></div><div id="reviews" class="page"><div class="head"><div><h1>Reviews</h1><p class="sub" id="reviewSummary">Loading customer reviews...</p></div><button class="btn dark" onclick="loadAdminReviews()">↻ Refresh</button></div><div class="panel" style="margin-top:18px"><div class="ph"><h2>Customer Reviews</h2><span class="muted" id="reviewCount">0</span></div><div class="tablewrap"><table class="table"><thead><tr><th>Customer</th><th>Product</th><th>Rating</th><th>Review</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminReviewsBody"><tr><td colspan="6">Loading...</td></tr></tbody></table></div></div></div><div id="tasks" class="page"><div class="demo-note">TASKS — Staff see only tasks assigned to them. The CEO can create, assign, reassign and monitor tasks.</div><div class="head"><div><div class="eyebrow">Work management</div><h1>Tasks</h1><p class="sub">Create and track work across the DOWA team.</p></div><button class="btn dark" onclick="openTaskModal()">＋ Add task</button></div><div class="cards" style="margin-top:10px"><div class="card"><span class="muted">Open</span><div class="metric">18</div></div><div class="card"><span class="muted">Due today</span><div class="metric">6</div></div><div class="card"><span class="muted">Completed</span><div class="metric">42</div></div><div class="card"><span class="muted">Overdue</span><div class="metric">2</div></div></div><div class="panel" style="margin-top:15px"><div class="ph"><h2>Task board</h2><span class="muted">Demo data</span></div><div class="tablewrap"><table class="table"><thead><tr><th>Task</th><th>Assigned to</th><th>Priority</th><th>Due</th><th>Status</th><th>Action</th></tr></thead><tbody><tr><td>Follow up with Jane Doe</td><td>Adam</td><td><span class="status amber">High</span></td><td>Today</td><td><span class="status blue">In progress</span></td><td><button class="action-btn" onclick="openTaskDetail('Follow up with Jane Doe','Adam')">Open</button></td></tr><tr><td>Confirm Cloud Sofa stock</td><td>David</td><td>Normal</td><td>Tomorrow</td><td><span class="status amber">Open</span></td><td><button class="action-btn" onclick="openTaskDetail('Confirm Cloud Sofa stock','David')">Open</button></td></tr></tbody></table></div></div></div>
 <div id="acquisition" class="page"><div class="demo-note">CUSTOMER ACQUISITION — Shows where enquiries and customers discovered DOWA Homes. Real attribution will come from website analytics, enquiry forms and order records.</div><div class="head"><div><div class="eyebrow">Growth intelligence</div><h1>Customer Acquisition</h1><p class="sub">Where DOWA customers and enquiries are coming from.</p></div><button class="btn" onclick="exportAcquisition()">Export sources</button></div><div class="cards" style="margin-top:10px"><div class="card"><span class="muted">Instagram</span><div class="metric">118</div><span class="green">30.6% of customers</span></div><div class="card"><span class="muted">Google</span><div class="metric">82</div><span class="green">21.2% of customers</span></div><div class="card"><span class="muted">WhatsApp</span><div class="metric">61</div><span class="green">15.8% of customers</span></div><div class="card"><span class="muted">TikTok</span><div class="metric">43</div><span class="green">11.1% of customers</span></div><div class="card"><span class="muted">Referral</span><div class="metric">39</div><span class="green">10.1% of customers</span></div></div><div class="grid"><div class="panel"><div class="ph"><h2>Customer source breakdown</h2><span class="muted">Customers</span></div><div class="funnel"><div class="frow"><label>Instagram</label><div class="track"><div class="fill" style="width:100%"></div></div><div class="num">118</div></div><div class="frow"><label>Google</label><div class="track"><div class="fill" style="width:69%"></div></div><div class="num">82</div></div><div class="frow"><label>WhatsApp</label><div class="track"><div class="fill" style="width:52%"></div></div><div class="num">61</div></div><div class="frow"><label>TikTok</label><div class="track"><div class="fill" style="width:36%"></div></div><div class="num">43</div></div><div class="frow"><label>Referral</label><div class="track"><div class="fill" style="width:33%"></div></div><div class="num">39</div></div></div></div><div class="panel"><div class="ph"><h2>Enquiry sources</h2><span class="muted">246 enquiries</span></div><div style="padding:17px;line-height:2.5;font-size:10px"><div>Instagram <b style="float:right">72</b></div><div>WhatsApp <b style="float:right">58</b></div><div>Google <b style="float:right">45</b></div><div>TikTok <b style="float:right">31</b></div><div>Referral <b style="float:right">23</b></div><div>Facebook <b style="float:right">17</b></div></div></div></div></div>
@@ -87,7 +110,7 @@ window.DOWA_SUPABASE = window.supabase.createClient(
 );
 </script>
 <script>
-function show(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const p=document.getElementById(id);if(p)p.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');document.getElementById('crumb').textContent=b?b.textContent.replace(/\s+/g,' ').trim():id;window.scrollTo(0,0);if(id==='orders')loadAdminOrders();if(id==='reviews')loadAdminReviews();if(id==='support')loadAdminSupport()}
+function show(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const p=document.getElementById(id);if(p)p.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');document.getElementById('crumb').textContent=b?b.textContent.replace(/\s+/g,' ').trim():id;window.scrollTo(0,0);if(id==='dashboard')loadAdminDashboard();if(id==='orders')loadAdminOrders();if(id==='customers')loadAdminCustomers();if(id==='reviews')loadAdminReviews();if(id==='support')loadAdminSupport();if(id==='team')loadAdminTeam()}
 function showSection(id){const b=[...document.querySelectorAll('.nav button')].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));show(id,b)}
 function openModal(html){document.getElementById('modalBox').innerHTML=html;document.getElementById('modalOverlay').classList.add('show')}
 function closeModal(){document.getElementById('modalOverlay').classList.remove('show')}
@@ -97,7 +120,23 @@ let __adminNotificationPoll=null;
 let __adminStaffId=null;
 
 function formatAdminNotificationTime(value){const d=new Date(value);return Number.isNaN(d.getTime())?"":d.toLocaleString([],{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}
-function updateAdminNotificationBadge(){const b=document.getElementById('adminNotificationBadge');if(!b)return;const n=__adminNotifications.filter(x=>!x.is_read).length;b.textContent=n>99?'99+':String(n);b.classList.toggle('show',n>0)}
+function updateAdminSectionNotificationBadges(){
+  const unread=__adminNotifications.filter(x=>!x.is_read);
+  const orderCount=unread.filter(x=>String(x.type||'').toLowerCase()==='new_order').length;
+  const supportCount=unread.filter(x=>String(x.type||'').toLowerCase()==='customer_message').length;
+  const orderBadge=document.getElementById('ordersNavBadge');
+  const supportBadge=document.getElementById('supportNavBadge');
+  if(orderBadge){orderBadge.textContent=orderCount>99?'99+':String(orderCount);orderBadge.classList.toggle('show',orderCount>0);}
+  if(supportBadge){supportBadge.textContent=supportCount>99?'99+':String(supportCount);supportBadge.classList.toggle('show',supportCount>0);}
+}
+function updateAdminNotificationBadge(){
+  const b=document.getElementById('adminNotificationBadge');
+  if(!b)return;
+  const n=__adminNotifications.filter(x=>!x.is_read).length;
+  b.textContent=n>99?'99+':String(n);
+  b.classList.toggle('show',n>0);
+  updateAdminSectionNotificationBadges();
+}
 async function getAdminNotificationStaffId(){
   if(__adminStaffId) return __adminStaffId;
   const session=await getAdminSession();
@@ -202,7 +241,7 @@ async function loadAdminSupport(){
   const body=document.getElementById('adminSupportBody');
   const summary=document.getElementById('supportSummary');
   if(!body||!window.DOWA_SUPABASE) return;
-  body.innerHTML='<tr><td colspan="5">Loading...</td></tr>';
+  body.innerHTML='<tr><td colspan="7">Loading...</td></tr>';
   try{
     const {data:conversations,error}=await window.DOWA_SUPABASE
       .from('support_conversations')
@@ -894,6 +933,175 @@ function editProduct(name,price,stock){
   if(p) editProductById(p.id);
 }
 
+
+let __dashboardLoadInFlight=false;
+
+function dashboardMonthRange(offset=0){
+  const now=new Date();
+  const start=new Date(now.getFullYear(),now.getMonth()+offset,1);
+  const end=new Date(now.getFullYear(),now.getMonth()+offset+1,1);
+  return {start,end};
+}
+
+function dashboardMonthLabel(date){
+  return date.toLocaleDateString('en-NG',{month:'long',year:'numeric'});
+}
+
+function dashboardNaira(value){
+  return '₦'+Number(value||0).toLocaleString('en-NG',{maximumFractionDigits:0});
+}
+
+function dashboardSetText(id,value){const el=document.getElementById(id);if(el)el.textContent=value;}
+function dashboardSetWidth(id,value){const el=document.getElementById(id);if(el)el.style.width=Math.max(0,Math.min(100,Number(value)||0))+'%';}
+
+async function loadAdminDashboard(){
+  if(__dashboardLoadInFlight || !window.DOWA_SUPABASE) return;
+  __dashboardLoadInFlight=true;
+
+  const current=dashboardMonthRange(0);
+  const previous=dashboardMonthRange(-1);
+  const monthLabel=dashboardMonthLabel(current.start);
+  const previousLabel=dashboardMonthLabel(previous.start);
+  const eyebrow=document.getElementById('dashboardEyebrow');
+  if(eyebrow) eyebrow.textContent=`CEO control center · ${monthLabel}`;
+
+  try{
+    const currentStart=current.start.toISOString();
+    const currentEnd=current.end.toISOString();
+    const previousStart=previous.start.toISOString();
+    const previousEnd=previous.end.toISOString();
+
+    /*
+      Keep the Dashboard fast and independent. The previous version fired 12
+      queries in parallel and treated one failed query as a failure of the
+      entire dashboard. It also showed NEW customers as the total customer
+      count. We now read the same tables already used by the working Admin
+      Customers/Orders pages, make only four requests, and calculate the
+      dashboard figures locally.
+    */
+    const [customersResult,ordersResult,supportResult,staffResult]=await Promise.all([
+      window.DOWA_SUPABASE.from('customers')
+        .select('id,created_at')
+        .order('created_at',{ascending:false}),
+      window.DOWA_SUPABASE.from('orders')
+        .select('id,order_number,customer_id,customer_name,total_amount,order_status,created_at')
+        .order('created_at',{ascending:false}),
+      window.DOWA_SUPABASE.from('support_conversations')
+        .select('id,assigned_staff_id,created_at')
+        .order('created_at',{ascending:false}),
+      window.DOWA_SUPABASE.from('staff_members')
+        .select('id,full_name,role_id,status')
+        .order('id',{ascending:true})
+    ]);
+
+    const errors=[customersResult,ordersResult,supportResult,staffResult].filter(r=>r?.error);
+    if(errors.length) console.warn('Some dashboard sources could not be read:',errors.map(r=>r.error));
+
+    const customers=customersResult.data||[];
+    const orders=ordersResult.data||[];
+    const conversations=supportResult.data||[];
+    const staff=staffResult.data||[];
+
+    const inRange=(value,range)=>{
+      if(!value) return false;
+      const d=new Date(value);
+      return !Number.isNaN(d.getTime()) && d>=range.start && d<range.end;
+    };
+
+    const customersCurrent=customers.filter(c=>inRange(c.created_at,current)).length;
+    const customersTotal=customers.length;
+    const ordersCurrent=orders.filter(o=>inRange(o.created_at,current)).length;
+    const ordersPrevious=orders.filter(o=>inRange(o.created_at,previous)).length;
+    const enquiriesCurrent=conversations.filter(c=>inRange(c.created_at,current)).length;
+    const enquiriesPrevious=conversations.filter(c=>inRange(c.created_at,previous)).length;
+    const revenueCurrent=orders.filter(o=>inRange(o.created_at,current)).reduce((sum,o)=>sum+Number(o.total_amount||0),0);
+    const revenuePrevious=orders.filter(o=>inRange(o.created_at,previous)).reduce((sum,o)=>sum+Number(o.total_amount||0),0);
+
+    const pct=(now,old)=>old>0?((now-old)/old)*100:null;
+    const pctText=(now,old)=>{
+      const p=pct(now,old);
+      if(p===null) return 'No previous-month baseline';
+      return `${p>=0?'↑':'↓'} ${Math.abs(p).toFixed(1)}% vs ${previousLabel.split(' ')[0]}`;
+    };
+
+    dashboardSetText('dashEnquiries',enquiriesCurrent.toLocaleString('en-NG'));
+    dashboardSetText('dashEnquiriesNote',pctText(enquiriesCurrent,enquiriesPrevious));
+    dashboardSetText('dashOrders',ordersCurrent.toLocaleString('en-NG'));
+    dashboardSetText('dashOrdersNote',pctText(ordersCurrent,ordersPrevious));
+
+    /* The card is TOTAL customers; the note tells the CEO how many are new. */
+    dashboardSetText('dashCustomers',customersTotal.toLocaleString('en-NG'));
+    dashboardSetText('dashCustomersNote',`${customersCurrent.toLocaleString('en-NG')} new this month`);
+
+    dashboardSetText('dashRevenue',dashboardNaira(revenueCurrent));
+    dashboardSetText('dashRevenueNote',pctText(revenueCurrent,revenuePrevious));
+
+    /* Visitor tracking and checkout-event tracking do not exist yet. */
+    dashboardSetText('dashVisitors','—');
+    dashboardSetText('dashVisitorsNote','Visitor tracking not connected');
+    dashboardSetText('dashFunnelVisitors','—');
+    dashboardSetWidth('dashFunnelVisitorsFill',0);
+
+    /* Cart rows are read separately because they are not an event table. */
+    let cartCount=0;
+    try{
+      const cartResult=await window.DOWA_SUPABASE.from('cart_items').select('id',{count:'exact',head:true});
+      if(!cartResult.error) cartCount=cartResult.count||0;
+      else console.warn('Dashboard cart count unavailable:',cartResult.error);
+    }catch(e){console.warn('Dashboard cart count failed:',e);}
+
+    dashboardSetText('dashFunnelEnquiries',enquiriesCurrent.toLocaleString('en-NG'));
+    dashboardSetText('dashFunnelCart',cartCount.toLocaleString('en-NG'));
+    dashboardSetText('dashFunnelCheckout','—');
+    dashboardSetText('dashFunnelOrders',ordersCurrent.toLocaleString('en-NG'));
+
+    const funnelMax=Math.max(enquiriesCurrent,cartCount,ordersCurrent,1);
+    dashboardSetWidth('dashFunnelEnquiriesFill',enquiriesCurrent/funnelMax*100);
+    dashboardSetWidth('dashFunnelCartFill',cartCount/funnelMax*100);
+    dashboardSetWidth('dashFunnelCheckoutFill',0);
+    dashboardSetWidth('dashFunnelOrdersFill',ordersCurrent/funnelMax*100);
+
+    const note=document.getElementById('dashboardConnectionNote');
+    if(note) note.textContent='CONNECTED MODE — Customers, orders, enquiries, revenue and team activity are live from Supabase. Website visitor and checkout-event tracking are not yet stored.';
+
+    const recentBody=document.getElementById('dashboardRecentOrdersBody');
+    if(recentBody){
+      const recent=orders.slice(0,3);
+      recentBody.innerHTML=recent.length?recent.map(o=>{
+        const customer=o.customer_name||'Customer';
+        const status=o.order_status||'Order Confirmed';
+        return `<tr><td><b>${escapeHtml(o.order_number||('#'+o.id))}</b></td><td>${escapeHtml(customer)}</td><td>${dashboardNaira(o.total_amount)}</td><td><span class="status ${orderStatusClass(status)}">${escapeHtml(status)}</span></td><td>${escapeHtml(formatOrderDate(o.created_at))}</td></tr>`;
+      }).join(''):'<tr><td colspan="5">No orders yet.</td></tr>';
+    }
+
+    const activeStaff=staff.filter(m=>String(m.status||'').toLowerCase()==='active');
+    const activityMap={};
+    for(const m of activeStaff) activityMap[m.id]={name:m.full_name||'Staff',role:'Staff',open:0};
+    for(const row of conversations){
+      if(row.assigned_staff_id && activityMap[row.assigned_staff_id] && inRange(row.created_at,current)){
+        activityMap[row.assigned_staff_id].open+=1;
+      }
+    }
+
+    const teamBox=document.getElementById('dashboardTeamActivity');
+    if(teamBox){
+      teamBox.innerHTML=activeStaff.length?activeStaff.slice(0,5).map(m=>{
+        const a=activityMap[m.id]||{name:m.full_name||'Staff',role:'Staff',open:0};
+        return `<div class="staffrow"><div class="staffleft"><div class="avatar">${escapeHtml(initials(a.name))}</div><div><b style="font-size:10px">${escapeHtml(a.name)}</b><div class="role">${escapeHtml(a.role)}</div></div></div><b>${a.open} <small class="muted">open</small></b></div>`;
+      }).join(''):'<div class="staffrow"><div class="muted">No active staff records found.</div></div>';
+    }
+
+  }catch(error){
+    console.error('Admin dashboard load failed:',error);
+    const note=document.getElementById('dashboardConnectionNote');
+    if(note) note.textContent='CONNECTED MODE — Some dashboard data could not be loaded. Open Orders or Customers to verify the underlying records.';
+    showToast('Dashboard could not load some live data.');
+  }finally{
+    __dashboardLoadInFlight=false;
+  }
+}
+
+
 async function getAdminSession(){
   if(!window.DOWA_SUPABASE) return null;
   const {data,error}=await window.DOWA_SUPABASE.auth.getSession();
@@ -926,10 +1134,15 @@ async function unlockAdmin(user){
   document.querySelector('.app')?.classList.add('admin-unlocked');
   const status=document.getElementById('adminAuthStatus');
   if(status) status.textContent='';
-  await loadAdminProducts();
-  await loadAdminOrders();
-  await loadAdminReviews();
-  await loadAdminSupport();
+  // Load the Dashboard first so authentication is not blocked by every
+  // secondary Admin page. Other pages refresh in the background.
+  await loadAdminDashboard();
+  Promise.allSettled([
+    loadAdminProducts(),
+    loadAdminOrders(),
+    loadAdminReviews(),
+    loadAdminSupport()
+  ]).catch(error=>console.error('Background Admin page loading failed:',error));
   startAdminNotificationPolling();
   return true;
 }
@@ -963,7 +1176,395 @@ async function restoreAdminSession(){
 document.addEventListener('DOMContentLoaded',()=>{restoreAdminSession();});
 
 
-let __adminOrders = [];
+let __adminCustomers = [];
+let __adminCustomerStats = {total:0,newThisMonth:0,returning:0};
+let __adminCustomerFilters = {month:"all",orders:"all",activity:"all"};
+
+function formatCustomerLastActive(value){
+  if(!value) return '—';
+  const d=new Date(value);
+  if(Number.isNaN(d.getTime())) return '—';
+  const now=new Date();
+  const diff=now.getTime()-d.getTime();
+  const day=86400000;
+  if(diff < day) return 'Today';
+  if(diff < day*2) return 'Yesterday';
+  return d.toLocaleDateString('en-NG',{day:'2-digit',month:'short',year:'numeric'});
+}
+
+async function loadAdminCustomers(){
+  const body=document.getElementById('adminCustomersBody');
+  const summary=document.getElementById('customerSummary');
+  if(!body || !window.DOWA_SUPABASE) return;
+  body.innerHTML='<tr><td colspan="5">Loading...</td></tr>';
+  try{
+    const [{data:customers,error:customerError},{data:orders,error:orderError}]=await Promise.all([
+      window.DOWA_SUPABASE.from('customers').select('id,full_name,email,phone,created_at').order('created_at',{ascending:false}),
+      window.DOWA_SUPABASE.from('orders').select('id,customer_id,total_amount,created_at').order('created_at',{ascending:false})
+    ]);
+    if(customerError) throw customerError;
+    if(orderError) throw orderError;
+
+    const rows=customers||[];
+    const orderRows=orders||[];
+    const statsByCustomer={};
+    orderRows.forEach(o=>{
+      const id=Number(o.customer_id);
+      if(!id) return;
+      if(!statsByCustomer[id]) statsByCustomer[id]={orders:0,spent:0,lastActive:null};
+      const stat=statsByCustomer[id];
+      stat.orders+=1;
+      stat.spent+=Number(o.total_amount||0);
+      if(!stat.lastActive || new Date(o.created_at)>new Date(stat.lastActive)) stat.lastActive=o.created_at;
+    });
+
+    __adminCustomers=rows.map(c=>{
+      const stat=statsByCustomer[Number(c.id)]||{orders:0,spent:0,lastActive:null};
+      return {...c,orderCount:stat.orders,spent:stat.spent,lastActive:stat.lastActive||c.created_at};
+    });
+
+    const monthStart=new Date();
+    monthStart.setDate(1); monthStart.setHours(0,0,0,0);
+    __adminCustomerStats={
+      total:__adminCustomers.length,
+      newThisMonth:__adminCustomers.filter(c=>c.created_at && new Date(c.created_at)>=monthStart).length,
+      returning:__adminCustomers.filter(c=>c.orderCount>1).length
+    };
+    populateCustomerMonthFilter();
+    renderAdminCustomers();
+  }catch(error){
+    console.error('Admin customers load failed:',error);
+    body.innerHTML='<tr><td colspan="7">Could not load customers. Check the Admin Supabase access policies.</td></tr>';
+    if(summary) summary.textContent='Customers could not be loaded.';
+    showToast('Could not load customers.');
+  }
+}
+
+function populateCustomerMonthFilter(){
+  const select=document.getElementById('customerMonthFilter');
+  if(!select) return;
+  const current=select.value || __adminCustomerFilters.month || 'all';
+  const monthMap=new Map();
+  __adminCustomers.forEach(c=>{
+    if(!c.created_at) return;
+    const d=new Date(c.created_at);
+    if(Number.isNaN(d.getTime())) return;
+    const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+    if(!monthMap.has(key)) monthMap.set(key,d);
+  });
+  const options=[...monthMap.entries()].sort((a,b)=>b[0].localeCompare(a[0])).map(([key,d])=>{
+    const label=d.toLocaleDateString('en-NG',{month:'long',year:'numeric'});
+    return `<option value="${key}">${escapeHtml(label)}</option>`;
+  }).join('');
+  select.innerHTML='<option value="all">All joined months</option>'+options;
+  select.value=monthMap.has(current)||current==='all' ? current : 'all';
+}
+
+function renderAdminCustomers(){
+  const body=document.getElementById('adminCustomersBody');
+  const summary=document.getElementById('customerSummary');
+  if(!body) return;
+  const search=String(document.getElementById('customerSearch')?.value||'').trim().toLowerCase();
+  const filters=__adminCustomerFilters;
+  const now=new Date();
+  const day=86400000;
+  const rows=__adminCustomers.filter(c=>{
+    if(search && ![c.full_name,c.email,c.phone].some(v=>String(v||'').toLowerCase().includes(search))) return false;
+
+    if(filters.month!=='all'){
+      if(!c.created_at) return false;
+      const d=new Date(c.created_at);
+      if(Number.isNaN(d.getTime())) return false;
+      const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+      if(key!==filters.month) return false;
+    }
+
+    const orderCount=Number(c.orderCount||0);
+    if(filters.orders==='has_orders' && orderCount<1) return false;
+    if(filters.orders==='no_orders' && orderCount!==0) return false;
+    if(filters.orders==='1_plus' && orderCount<1) return false;
+    if(filters.orders==='5_plus' && orderCount<5) return false;
+    if(filters.orders==='10_plus' && orderCount<10) return false;
+
+    const lastActive=c.lastActive ? new Date(c.lastActive) : null;
+    const age=lastActive && !Number.isNaN(lastActive.getTime()) ? now.getTime()-lastActive.getTime() : Infinity;
+    if(filters.activity==='today' && age>=day) return false;
+    if(filters.activity==='7_days' && age>=day*7) return false;
+    if(filters.activity==='30_days' && age>=day*30) return false;
+    if(filters.activity==='inactive_30' && age<day*30) return false;
+
+    return true;
+  });
+
+  if(!rows.length){
+    body.innerHTML='<tr><td colspan="7">No customers match these filters.</td></tr>';
+  }else{
+    body.innerHTML=rows.map(c=>`<tr onclick="openCustomerProfile(${Number(c.id)})" style="cursor:pointer" title="Open customer profile"><td><b>${escapeHtml(c.full_name||'Customer')}</b></td><td>${escapeHtml(c.email||'—')}</td><td>${escapeHtml(c.phone||'—')}</td><td>${Number(c.orderCount||0)}</td><td>${formatNaira(c.spent)}</td><td>${formatOrderDate(c.created_at)}</td><td>${escapeHtml(formatCustomerLastActive(c.lastActive))}</td></tr>`).join('');
+  }
+  if(summary){
+    const filterText=rows.length!==__adminCustomers.length ? ` · ${rows.length} shown` : '';
+    summary.textContent=`${__adminCustomerStats.total} customer${__adminCustomerStats.total===1?'':'s'} · ${__adminCustomerStats.newThisMonth} new this month · ${__adminCustomerStats.returning} returning${filterText}`;
+  }
+}
+
+async function openCustomerProfile(customerId){
+  const customer=__adminCustomers.find(c=>Number(c.id)===Number(customerId));
+  if(!customer) return;
+
+  openModal(`<h2>${escapeHtml(customer.full_name||'Customer')}</h2>
+    <p>Customer profile from Supabase.</p>
+
+    <div class="panel" style="padding:15px;line-height:1.9">
+      <b>Email:</b> ${escapeHtml(customer.email||'—')}<br>
+      <b>Phone:</b> ${escapeHtml(customer.phone||'—')}<br>
+      <b>Customer ID:</b> ${Number(customer.id)}<br>
+      <b>Date joined:</b> ${formatOrderDate(customer.created_at)}<br>
+      <b>Last active:</b> ${escapeHtml(formatCustomerLastActive(customer.lastActive))}<br>
+      <b>Total orders:</b> ${Number(customer.orderCount||0)}<br>
+      <b>Total spent:</b> ${formatNaira(customer.spent)}
+    </div>
+
+    <div class="field">
+      <label>Current cart</label>
+      <div id="customerProfileCart" class="panel" style="padding:12px">Loading cart…</div>
+    </div>
+
+    <div class="field">
+      <label>Wishlist</label>
+      <div id="customerProfileWishlist" class="panel" style="padding:12px">Loading wishlist…</div>
+    </div>
+
+    <div class="field">
+      <label>Order history</label>
+      <div id="customerProfileOrders" class="panel" style="padding:12px">Loading orders…</div>
+    </div>
+
+    <div class="field">
+      <label>Recently viewed</label>
+      <div id="customerProfileRecentlyViewed" class="panel" style="padding:12px">Loading recently viewed products…</div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal()">Close</button>
+    </div>`);
+
+  const cartBox=document.getElementById('customerProfileCart');
+  const wishlistBox=document.getElementById('customerProfileWishlist');
+  const ordersBox=document.getElementById('customerProfileOrders');
+  const recentlyViewedBox=document.getElementById('customerProfileRecentlyViewed');
+
+  try{
+    /* Load each customer activity source independently.
+       One RLS/schema error must not make the other sections fail. */
+    let orders=[];
+    let cartRows=[];
+    let wishlistItems=[];
+    let recentlyViewedRows=[];
+    let cartLoadError=null;
+    let wishlistLoadError=null;
+    let orderLoadError=null;
+    let recentlyViewedLoadError=null;
+
+    const ordersResult=await window.DOWA_SUPABASE
+      .from('orders')
+      .select('id,order_number,total_amount,order_status,payment_status,created_at')
+      .eq('customer_id',customerId)
+      .order('created_at',{ascending:false});
+    if(ordersResult.error){
+      orderLoadError=ordersResult.error;
+      console.error('Customer profile order history failed:',ordersResult.error);
+    }else{
+      orders=ordersResult.data||[];
+    }
+
+    const cartResult=await window.DOWA_SUPABASE
+      .from('cart_items')
+      .select('id,product_id,quantity,size,color,created_at')
+      .eq('customer_id',customerId)
+      .order('created_at',{ascending:false});
+    if(cartResult.error){
+      cartLoadError=cartResult.error;
+      console.error('Customer profile cart failed:',cartResult.error);
+    }else{
+      cartRows=cartResult.data||[];
+    }
+
+    const recentlyViewedResult=await window.DOWA_SUPABASE
+      .from('customer_product_views')
+      .select('id,product_id,view_count,last_viewed_at,created_at')
+      .eq('customer_id',customerId)
+      .order('last_viewed_at',{ascending:false});
+    if(recentlyViewedResult.error){
+      recentlyViewedLoadError=recentlyViewedResult.error;
+      console.error('Customer profile recently viewed failed:',recentlyViewedResult.error);
+    }else{
+      recentlyViewedRows=recentlyViewedResult.data||[];
+    }
+
+    const wishlistResult=await window.DOWA_SUPABASE
+      .from('wishlists')
+      .select('id')
+      .eq('customer_id',customerId)
+      .order('id',{ascending:false})
+      .limit(1);
+    if(wishlistResult.error){
+      wishlistLoadError=wishlistResult.error;
+      console.error('Customer profile wishlist failed:',wishlistResult.error);
+    }else{
+      const wishlistId=wishlistResult.data?.[0]?.id||null;
+      if(wishlistId){
+        const wishlistItemsResult=await window.DOWA_SUPABASE
+          .from('wishlist_items')
+          .select('id,product_id,created_at')
+          .eq('wishlist_id',wishlistId)
+          .order('created_at',{ascending:false});
+        if(wishlistItemsResult.error){
+          wishlistLoadError=wishlistItemsResult.error;
+          console.error('Customer profile wishlist items failed:',wishlistItemsResult.error);
+        }else{
+          wishlistItems=wishlistItemsResult.data||[];
+        }
+      }
+    }
+
+    /* Get product details in one request for cart + wishlist items. */
+    const productIds=[...new Set([
+      ...cartRows.map(x=>Number(x.product_id)),
+      ...wishlistItems.map(x=>Number(x.product_id)),
+      ...recentlyViewedRows.map(x=>Number(x.product_id))
+    ].filter(Number.isFinite))];
+
+    let productMap={};
+    if(productIds.length){
+      const productsResult=await window.DOWA_SUPABASE
+        .from('products')
+        .select('id,name,base_price,main_image_url,status')
+        .in('id',productIds);
+      if(productsResult.error) throw new Error(`Products: ${productsResult.error.message}`);
+      productMap=Object.fromEntries((productsResult.data||[]).map(p=>[String(p.id),p]));
+    }
+
+    /* ---------------- CART ---------------- */
+    if(cartBox){
+      if(cartLoadError){
+        cartBox.innerHTML='<span class="muted">Cart data is not available to the Admin account yet. This is usually an RLS permission issue.</span>';
+      }else if(!cartRows.length){
+        cartBox.innerHTML='<span class="muted">Cart is empty.</span>';
+      }else{
+        cartBox.innerHTML=cartRows.map(row=>{
+          const product=productMap[String(row.product_id)];
+          const image=product?.main_image_url
+            ? `<img src="${escapeHtml(product.main_image_url)}" alt="" style="width:52px;height:52px;object-fit:cover;border-radius:8px;border:1px solid #e5e0d7">`
+            : `<div style="width:52px;height:52px;border-radius:8px;background:#f1eee8;display:grid;place-items:center;font-size:9px;color:#999">No image</div>`;
+          const options=[row.size&&`Size: ${escapeHtml(row.size)}`,row.color&&`Color: ${escapeHtml(row.color)}`].filter(Boolean).join(' · ');
+          return `<div style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #e5e0d7;align-items:center">
+            ${image}
+            <div style="min-width:0;flex:1">
+              <b style="font-size:11px">${escapeHtml(product?.name||`Product #${row.product_id}`)}</b>
+              <div style="font-size:10px;color:#77736b;margin-top:3px">${options||'No variant selected'} · Qty: ${Number(row.quantity||1)}</div>
+              <div style="font-size:10px;margin-top:3px">${formatNaira(product?.base_price||0)}</div>
+            </div>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    /* ---------------- WISHLIST ---------------- */
+    if(wishlistBox){
+      if(wishlistLoadError){
+        wishlistBox.innerHTML='<span class="muted">Wishlist data is not available to the Admin account yet. This is usually an RLS permission issue.</span>';
+      }else if(!wishlistItems.length){
+        wishlistBox.innerHTML='<span class="muted">Wishlist is empty.</span>';
+      }else{
+        wishlistBox.innerHTML=wishlistItems.map(row=>{
+          const product=productMap[String(row.product_id)];
+          const image=product?.main_image_url
+            ? `<img src="${escapeHtml(product.main_image_url)}" alt="" style="width:52px;height:52px;object-fit:cover;border-radius:8px;border:1px solid #e5e0d7">`
+            : `<div style="width:52px;height:52px;border-radius:8px;background:#f1eee8;display:grid;place-items:center;font-size:9px;color:#999">No image</div>`;
+          return `<div style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #e5e0d7;align-items:center">
+            ${image}
+            <div style="min-width:0;flex:1">
+              <b style="font-size:11px">${escapeHtml(product?.name||`Product #${row.product_id}`)}</b>
+              <div style="font-size:10px;color:#77736b;margin-top:3px">${formatNaira(product?.base_price||0)} · ${escapeHtml(product?.status||'—')}</div>
+            </div>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    /* ---------------- RECENTLY VIEWED ---------------- */
+    if(recentlyViewedBox){
+      if(recentlyViewedLoadError){
+        recentlyViewedBox.innerHTML='<span class="muted">Recently viewed data is not available to the Admin account yet. This is usually an RLS permission issue.</span>';
+      }else if(!recentlyViewedRows.length){
+        recentlyViewedBox.innerHTML='<span class="muted">No products viewed yet.</span>';
+      }else{
+        recentlyViewedBox.innerHTML=recentlyViewedRows.map(row=>{
+          const product=productMap[String(row.product_id)];
+          const image=product?.main_image_url
+            ? `<img src="${escapeHtml(product.main_image_url)}" alt="" style="width:52px;height:52px;object-fit:cover;border-radius:8px;border:1px solid #e5e0d7">`
+            : `<div style="width:52px;height:52px;border-radius:8px;background:#f1eee8;display:grid;place-items:center;font-size:9px;color:#999">No image</div>`;
+          const viewedAt=row.last_viewed_at ? new Date(row.last_viewed_at) : null;
+          const viewedLabel=viewedAt && !Number.isNaN(viewedAt.getTime())
+            ? viewedAt.toLocaleDateString('en-NG',{day:'2-digit',month:'short',year:'numeric'})+' · '+viewedAt.toLocaleTimeString('en-NG',{hour:'2-digit',minute:'2-digit'})
+            : '—';
+          return `<div style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #e5e0d7;align-items:center">
+            ${image}
+            <div style="min-width:0;flex:1">
+              <b style="font-size:11px">${escapeHtml(product?.name||`Product #${row.product_id}`)}</b>
+              <div style="font-size:10px;color:#77736b;margin-top:3px">Viewed ${Number(row.view_count||0)} ${Number(row.view_count||0)===1?'time':'times'}</div>
+              <div style="font-size:10px;color:#77736b;margin-top:3px">Last viewed: ${escapeHtml(viewedLabel)}</div>
+            </div>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    /* ---------------- ORDERS ---------------- */
+    if(ordersBox){
+      if(orderLoadError){
+        ordersBox.innerHTML='<span class="muted">Could not load order history.</span>';
+      }else if(!orders.length){
+        ordersBox.innerHTML='No orders yet.';
+      }else{
+        ordersBox.innerHTML=orders.map(o=>`<div style="padding:9px 0;border-bottom:1px solid #e5e0d7"><b>${escapeHtml(o.order_number||('#'+o.id))}</b><div style="font-size:10px;color:#77736b;margin-top:3px">${formatOrderDate(o.created_at)} · ${formatNaira(o.total_amount)} · ${escapeHtml(o.order_status||'—')} · Payment: ${escapeHtml(o.payment_status||'—')}</div></div>`).join('');
+      }
+    }
+
+  }catch(error){
+    console.error('Customer profile load failed:',error);
+    if(cartBox && cartBox.textContent.includes('Loading')) cartBox.innerHTML='<span class="muted">Could not load cart.</span>';
+    if(wishlistBox && wishlistBox.textContent.includes('Loading')) wishlistBox.innerHTML='<span class="muted">Could not load wishlist.</span>';
+    if(ordersBox && ordersBox.textContent.includes('Loading')) ordersBox.innerHTML='<span class="muted">Could not load order history.</span>';
+    if(recentlyViewedBox && recentlyViewedBox.textContent.includes('Loading')) recentlyViewedBox.innerHTML='<span class="muted">Could not load recently viewed products.</span>';
+  }
+}
+
+function applyCustomerFilters(){
+  __adminCustomerFilters={
+    month:document.getElementById('customerMonthFilter')?.value||'all',
+    orders:document.getElementById('customerOrderFilter')?.value||'all',
+    activity:document.getElementById('customerActivityFilter')?.value||'all'
+  };
+  renderAdminCustomers();
+}
+
+function clearCustomerFilters(){
+  __adminCustomerFilters={month:'all',orders:'all',activity:'all'};
+  const search=document.getElementById('customerSearch');
+  if(search) search.value='';
+  ['customerMonthFilter','customerOrderFilter','customerActivityFilter'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value='all';
+  });
+  renderAdminCustomers();
+}
+
+function filterCustomers(q){
+  const input=document.getElementById('customerSearch');
+  if(input && input.value!==q) input.value=q;
+  renderAdminCustomers();
+}
 
 function formatNaira(value){
   return '₦' + Number(value||0).toLocaleString('en-NG');
@@ -988,7 +1589,15 @@ async function loadAdminOrders(){
   const body=document.getElementById('adminOrdersBody');
   const summary=document.getElementById('orderSummary');
   const count=document.getElementById('orderCount');
-  if(body) body.innerHTML='<tr><td colspan="7">Loading...</td></tr>';
+
+  /* Keep the existing rows visible while refreshing so the page does not
+     appear to clear and wait for every query to finish. */
+  if(body && !__adminOrders.length){
+    body.innerHTML='<tr><td colspan="7">Loading...</td></tr>';
+  }
+  if(summary && __adminOrders.length){
+    summary.textContent='Refreshing orders…';
+  }
 
   if(!window.DOWA_SUPABASE){
     if(body) body.innerHTML='<tr><td colspan="7">Supabase is not connected.</td></tr>';
@@ -996,40 +1605,68 @@ async function loadAdminOrders(){
   }
 
   try{
-    const {data:rows,error}=await window.DOWA_SUPABASE
+    /*
+      Previous version made 2 extra Supabase requests PER order:
+      one for the customer and one for its items. With 21 orders that
+      meant 43 database requests before the table could render.
+
+      Fetch the orders, all customers and all order items in parallel
+      instead. This keeps the exact same UI/data but reduces the refresh
+      to at most 3 database requests.
+    */
+    const ordersPromise=window.DOWA_SUPABASE
       .from('orders')
       .select('id,order_number,customer_id,customer_name,customer_email,customer_phone,order_status,payment_status,subtotal,delivery_fee,discount_amount,total_amount,created_at,delivery_address,delivery_city,delivery_state,notes')
       .order('created_at',{ascending:false});
 
+    const {data:rows,error}=await ordersPromise;
     if(error) throw error;
 
-    const ordersWithItems=[];
-    for(const row of (rows||[])){
-      const {data:customer}=await window.DOWA_SUPABASE
-        .from('customers')
-        .select('id,full_name,email,phone')
-        .eq('id',row.customer_id)
-        .maybeSingle();
+    const orders=rows||[];
+    const customerIds=[...new Set(orders.map(o=>o.customer_id).filter(Boolean))];
+    const orderIds=orders.map(o=>o.id).filter(Boolean);
 
-      const {data:items}=await window.DOWA_SUPABASE
-        .from('order_items')
-        .select('id,product_id,variant_id,product_name,variant_name,color,sku,quantity,unit_price,line_total,created_at')
-        .eq('order_id',row.id);
+    const [customersResult,itemsResult]=await Promise.all([
+      customerIds.length
+        ? window.DOWA_SUPABASE
+            .from('customers')
+            .select('id,full_name,email,phone')
+            .in('id',customerIds)
+        : Promise.resolve({data:[],error:null}),
+      orderIds.length
+        ? window.DOWA_SUPABASE
+            .from('order_items')
+            .select('id,order_id,product_id,variant_id,product_name,variant_name,color,sku,quantity,unit_price,line_total,created_at')
+            .in('order_id',orderIds)
+        : Promise.resolve({data:[],error:null})
+    ]);
 
-      ordersWithItems.push({
-        ...row,
-        customer:customer||{},
-        items:items||[]
-      });
+    if(customersResult.error) throw customersResult.error;
+    if(itemsResult.error) throw itemsResult.error;
+
+    const customerMap=Object.fromEntries(
+      (customersResult.data||[]).map(c=>[String(c.id),c])
+    );
+    const itemsMap={};
+    for(const item of (itemsResult.data||[])){
+      const key=String(item.order_id);
+      (itemsMap[key] ||= []).push(item);
     }
 
-    __adminOrders=ordersWithItems;
+    __adminOrders=orders.map(row=>({
+      ...row,
+      customer:customerMap[String(row.customer_id)]||{},
+      items:itemsMap[String(row.id)]||[]
+    }));
+
     renderAdminOrders();
   }catch(error){
     console.error('Admin orders load failed:',error);
-    if(body) body.innerHTML='<tr><td colspan="7">Could not load orders. Check the Admin Supabase access policies.</td></tr>';
+    if(body && !__adminOrders.length){
+      body.innerHTML='<tr><td colspan="7">Could not load orders. Check the Admin Supabase access policies.</td></tr>';
+    }
     if(summary) summary.textContent='Orders could not be loaded.';
-    if(count) count.textContent='0';
+    if(count) count.textContent=String(__adminOrders.length||0);
     showToast('Could not load orders.');
   }
 }
@@ -1124,15 +1761,311 @@ async function saveLiveOrderStatus(id){
 }
 
 
-function openTeamModal(){openModal(`<h2>Add team member</h2><p>Create a staff account and assign a role. Real authentication will be connected in the backend phase.</p><div class="form-grid"><div class="field"><label>Full name</label><input id="tName" placeholder="Staff name"></div><div class="field"><label>Email</label><input id="tEmail" type="email" placeholder="staff@dowahomes.com"></div><div class="field"><label>Role</label><select id="tRole"><option>Customer Service</option><option>Inventory Manager</option><option>Order Manager</option><option>Support Manager</option></select></div><div class="field"><label>Status</label><select id="tStatus"><option>Active</option><option>Suspended</option></select></div><div class="field full"><label>Company overview access</label><select id="tOverview"><option>No — staff workspace only</option><option>Yes — CEO granted access</option></select></div></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn dark" onclick="saveTeam()">Add team member</button></div>`)}
-function saveTeam(){const n=document.getElementById('tName').value.trim();if(!n){showToast('Please enter the staff name.');return}closeModal();showToast(`${n} added to the team.`)}
+
+let __adminTeamMembers = [];
+let __adminRoles = [];
+let __adminPermissions = [];
+
+function currentAdminStaffId(){ return 1; }
+
+function initials(name){
+  const parts=String(name||'').trim().split(/\s+/).filter(Boolean);
+  return parts.length ? parts.slice(0,2).map(x=>x[0]).join('').toUpperCase() : 'ST';
+}
+
+function teamStatusClass(status){
+  return String(status||'').toLowerCase()==='active' ? 'greenbg' : 'amber';
+}
+
+function escapeAttribute(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function loadAdminTeam(){
+  const teamBody=document.getElementById('adminTeamBody');
+  const rolesBody=document.getElementById('adminRolesBody');
+  const summary=document.getElementById('teamSummary');
+  const roleCount=document.getElementById('roleCount');
+  if(teamBody) teamBody.innerHTML='<tr><td colspan="6">Loading...</td></tr>';
+  if(rolesBody) rolesBody.innerHTML='<tr><td colspan="6">Loading...</td></tr>';
+
+  try{
+    const [staffResult,rolesResult,permissionsResult]=await Promise.all([
+      window.DOWA_SUPABASE.from('staff_members').select('id,auth_user_id,full_name,email,phone,role_id,status,created_at,updated_at').order('id',{ascending:true}),
+      window.DOWA_SUPABASE.from('staff_roles').select('id,name,description,is_system_role,is_active,created_at,updated_at').order('id',{ascending:true}),
+      window.DOWA_SUPABASE.from('staff_role_permissions').select('role_id,permission_id,staff_permissions(id,permission_key,permission_name,permission_group,description)')
+    ]);
+    if(staffResult.error) throw staffResult.error;
+    if(rolesResult.error) throw rolesResult.error;
+    if(permissionsResult.error) throw permissionsResult.error;
+
+    __adminTeamMembers=staffResult.data||[];
+    __adminRoles=rolesResult.data||[];
+    __adminPermissions=permissionsResult.data||[];
+
+    // The role list is authoritative from staff_roles. Keep the result untouched;
+    // this diagnostic only helps identify a database/RLS mismatch instead of
+    // making the invite dropdown look like roles were never created.
+    if(!__adminRoles.length){
+      console.warn('[DOWA TEAM] staff_roles returned 0 rows for the authenticated admin. Check staff_roles access/RLS.');
+    }
+
+    const roleMap=new Map(__adminRoles.map(r=>[Number(r.id),r]));
+    const permissionCount=new Map();
+    __adminPermissions.forEach(row=>permissionCount.set(Number(row.role_id),(permissionCount.get(Number(row.role_id))||0)+1));
+
+    const activeCount=__adminTeamMembers.filter(x=>String(x.status).toLowerCase()==='active').length;
+    if(summary) summary.textContent=`${activeCount} active staff member${activeCount===1?'':'s'} · ${__adminRoles.length} role${__adminRoles.length===1?'':'s'}`;
+    if(roleCount) roleCount.textContent=`${__adminRoles.length} role${__adminRoles.length===1?'':'s'}`;
+
+    if(teamBody){
+      teamBody.innerHTML=__adminTeamMembers.length ? __adminTeamMembers.map(member=>{
+        const role=roleMap.get(Number(member.role_id));
+        const isCEO=role?.name==='CEO' || Number(member.id)===1;
+        return `<tr>
+          <td><div class="staffleft"><div class="avatar">${escapeHtml(initials(member.full_name))}</div><div><b>${escapeHtml(member.full_name)}</b>${isCEO?'<div class="role">Protected CEO account</div>':''}</div></div></td>
+          <td>${escapeHtml(member.email||'—')}</td>
+          <td>${escapeHtml(role?.name||'No role')}</td>
+          <td><span class="status ${teamStatusClass(member.status)}">${escapeHtml(member.status||'unknown')}</span></td>
+          <td>${formatOrderDate(member.created_at)}</td>
+          <td><button class="action-btn" onclick="openStaffAction(${Number(member.id)})">Manage</button></td>
+        </tr>`;
+      }).join('') : '<tr><td colspan="6">No staff members found.</td></tr>';
+    }
+
+    if(rolesBody){
+      rolesBody.innerHTML=__adminRoles.length ? __adminRoles.map(role=>{
+        const count=permissionCount.get(Number(role.id))||0;
+        return `<tr>
+          <td><b>${escapeHtml(role.name)}</b></td>
+          <td style="white-space:normal;max-width:320px">${escapeHtml(role.description||'—')}</td>
+          <td>${role.is_system_role?'System role':'Custom role'}</td>
+          <td>${count}</td>
+          <td><span class="status ${role.is_active?'greenbg':'amber'}">${role.is_active?'Active':'Disabled'}</span></td>
+          <td><button class="action-btn" onclick="openRoleModal(${Number(role.id)})">${role.is_system_role?'View':'Edit'}</button></td>
+        </tr>`;
+      }).join('') : '<tr><td colspan="6">No roles found.</td></tr>';
+    }
+  }catch(error){
+    console.error('Team load failed:',error);
+    if(teamBody) teamBody.innerHTML=`<tr><td colspan="6">${escapeHtml(error?.message||'Unable to load team.')}</td></tr>`;
+    if(rolesBody) rolesBody.innerHTML=`<tr><td colspan="6">${escapeHtml(error?.message||'Unable to load roles.')}</td></tr>`;
+  }
+}
+
+function permissionGroups(){
+  const groups={};
+  __adminPermissions.forEach(row=>{
+    const p=row.staff_permissions;
+    if(!p) return;
+    const group=p.permission_group||'Other';
+    if(!groups[group]) groups[group]=[];
+    groups[group].push(p);
+  });
+  return groups;
+}
+
+function selectedPermissionIdsForRole(roleId){
+  return new Set(__adminPermissions.filter(x=>Number(x.role_id)===Number(roleId)).map(x=>Number(x.permission_id)));
+}
+
+function renderPermissionPicker(selectedIds=new Set(),disabled=false){
+  const groups=permissionGroups();
+  return Object.entries(groups).map(([group,permissions])=>`
+    <div style="border:1px solid #e5e0d7;border-radius:10px;padding:12px;margin-top:10px">
+      <b style="font-size:10px">${escapeHtml(group)}</b>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px">
+        ${permissions.map(p=>`
+          <label style="display:flex;gap:7px;align-items:flex-start;font-size:10px;color:#555;cursor:${disabled?'default':'pointer'}">
+            <input type="checkbox" name="rolePermission" value="${Number(p.id)}" ${selectedIds.has(Number(p.id))?'checked':''} ${disabled?'disabled':''}>
+            <span><b style="font-size:10px">${escapeHtml(p.permission_name)}</b><small style="display:block;color:#999;font-size:8px;margin-top:2px">${escapeHtml(p.description||'')}</small></span>
+          </label>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function openRoleModal(roleId=null){
+  const role=__adminRoles.find(r=>Number(r.id)===Number(roleId));
+  const isSystem=!!role?.is_system_role;
+  const selected=role ? selectedPermissionIdsForRole(role.id) : new Set();
+  openModal(`<h2>${role?(isSystem?'View role':'Edit role'):'Create role'}</h2>
+    <p>${isSystem?'The CEO is a protected system role and cannot be disabled or deleted.':'Create a custom role and choose exactly which permissions it receives.'}</p>
+    <div class="form-grid">
+      <div class="field full"><label>Role name</label><input id="roleName" value="${escapeAttribute(role?.name||'')}" placeholder="e.g. Order Manager" ${isSystem?'disabled':''}></div>
+      <div class="field full"><label>Description</label><textarea id="roleDescription" ${isSystem?'disabled':''} placeholder="What is this role responsible for?">${escapeHtml(role?.description||'')}</textarea></div>
+      <div class="field full"><label>Permissions</label><div id="rolePermissions">${renderPermissionPicker(selected,isSystem)}</div></div>
+    </div>
+    <div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button>${isSystem?'':`<button class="btn dark" onclick="saveRole(${role?Number(role.id):'null'})">${role?'Save changes':'Create role'}</button>`}</div>`);
+}
+
+async function saveRole(roleId=null){
+  const name=document.getElementById('roleName')?.value.trim();
+  const description=document.getElementById('roleDescription')?.value.trim()||'';
+  const permissionIds=[...document.querySelectorAll('input[name="rolePermission"]:checked')].map(x=>Number(x.value));
+  if(!name){showToast('Role name is required.');return;}
+  if(!permissionIds.length){showToast('Select at least one permission.');return;}
+
+  try{
+    let savedRoleId=roleId;
+    if(roleId){
+      const {data,error}=await window.DOWA_SUPABASE.from('staff_roles').update({name,description,updated_at:new Date().toISOString()}).eq('id',roleId).select('id,is_system_role').single();
+      if(error) throw error;
+      if(data?.is_system_role) throw new Error('System roles cannot be edited here.');
+    }else{
+      const {data,error}=await window.DOWA_SUPABASE.from('staff_roles').insert({name,description,is_system_role:false,is_active:true,created_by_staff_id:currentAdminStaffId()}).select('id').single();
+      if(error) throw error;
+      savedRoleId=data.id;
+    }
+
+    const {error:deleteError}=await window.DOWA_SUPABASE.from('staff_role_permissions').delete().eq('role_id',savedRoleId);
+    if(deleteError) throw deleteError;
+
+    const {error:permissionError}=await window.DOWA_SUPABASE.from('staff_role_permissions').insert(permissionIds.map(permission_id=>({role_id:savedRoleId,permission_id})));
+    if(permissionError) throw permissionError;
+
+    await logStaffActivity(roleId?'role.updated':'role.created','staff_role',savedRoleId,`${roleId?'Updated':'Created'} role "${name}"`,{permission_ids:permissionIds});
+    closeModal();
+    await loadAdminTeam();
+    showToast(`Role "${name}" ${roleId?'updated':'created'} successfully.`);
+  }catch(error){
+    console.error('Role save failed:',error);
+    showToast(error?.message||'Unable to save role.');
+  }
+}
+
+async function logStaffActivity(action,entityType,entityId,description,metadata={}){
+  try{
+    const {error}=await window.DOWA_SUPABASE.from('staff_activity_logs').insert({
+      staff_id:currentAdminStaffId(),action,entity_type:entityType,entity_id:String(entityId??''),description,metadata
+    });
+    if(error) console.warn('Activity log failed:',error);
+  }catch(error){console.warn('Activity log exception:',error);}
+}
+
+function openStaffAction(staffId){
+  const member=__adminTeamMembers.find(x=>Number(x.id)===Number(staffId));
+  if(!member) return;
+  const role=__adminRoles.find(r=>Number(r.id)===Number(member.role_id));
+  const isCEO=role?.name==='CEO' || Number(member.id)===1;
+  const roleOptions=__adminRoles.map(r=>`<option value="${Number(r.id)}" ${Number(member.role_id)===Number(r.id)?'selected':''}>${escapeHtml(r.name)}</option>`).join('');
+
+  openModal(`<h2>${escapeHtml(member.full_name)}</h2>
+    <p>${isCEO?'Protected CEO account. The CEO account cannot be disabled or moved to another role.':"Manage this team member's role and account status."}</p>
+    <div class="form-grid">
+      <div class="field"><label>Full name</label><input id="editStaffName" value="${escapeAttribute(member.full_name)}" ${isCEO?'disabled':''}></div>
+      <div class="field"><label>Email</label><input value="${escapeAttribute(member.email||'')}" disabled></div>
+      <div class="field"><label>Role</label><select id="editStaffRole" ${isCEO?'disabled':''}>${roleOptions}</select></div>
+      <div class="field"><label>Status</label><select id="editStaffStatus" ${isCEO?'disabled':''}><option value="active" ${member.status==='active'?'selected':''}>Active</option><option value="suspended" ${member.status==='suspended'?'selected':''}>Suspended</option><option value="disabled" ${member.status==='disabled'?'selected':''}>Disabled</option></select></div>
+    </div>
+    <div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button>${isCEO?'':`<button class="btn dark" onclick="saveStaffMember(${Number(member.id)})">Save changes</button>`}</div>`);
+}
+
+async function saveStaffMember(staffId){
+  const member=__adminTeamMembers.find(x=>Number(x.id)===Number(staffId));
+  if(!member) return;
+  const name=document.getElementById('editStaffName')?.value.trim();
+  const roleId=Number(document.getElementById('editStaffRole')?.value);
+  const status=document.getElementById('editStaffStatus')?.value;
+  if(!name){showToast('Full name is required.');return;}
+
+  const targetRole=__adminRoles.find(r=>Number(r.id)===roleId);
+  if(targetRole?.name==='CEO'){showToast('The CEO role is protected and cannot be assigned here.');return;}
+
+  try{
+    const {error}=await window.DOWA_SUPABASE.from('staff_members').update({full_name:name,role_id:roleId,status,updated_at:new Date().toISOString()}).eq('id',staffId);
+    if(error) throw error;
+    await logStaffActivity('staff.updated','staff_member',staffId,`Updated team member "${name}"`,{role_id:roleId,status});
+    closeModal();
+    await loadAdminTeam();
+    showToast(`${name} updated successfully.`);
+  }catch(error){
+    console.error('Staff update failed:',error);
+    showToast(error?.message||'Unable to update team member.');
+  }
+}
+
+function openTeamModal(){
+  const roleNames=__adminRoles
+    .filter(r=>String(r.name||'').toLowerCase()!=='ceo' && r.is_active!==false)
+    .map(r=>r.name);
+  const roleList=roleNames.map(name=>`<option value="${escapeAttribute(name)}"></option>`).join('');
+
+  openModal(`<h2>Invite team member</h2>
+    <p>Write the role you want to give this person. If the role already exists, it will be used. If it is a new role, the system will create it as a custom role and you can configure its permissions from <b>Roles & permissions</b>.</p>
+    <div class="form-grid">
+      <div class="field"><label>Full name</label><input id="tName" placeholder="Staff name"></div>
+      <div class="field"><label>Email</label><input id="tEmail" type="email" placeholder="staff@dowahomes.com"></div>
+      <div class="field"><label>Phone</label><input id="tPhone" type="tel" placeholder="+234..."></div>
+      <div class="field"><label>Role</label><input id="tRole" list="teamRoleList" placeholder="e.g. Customer Service, Sales Manager, Social Media Manager" autocomplete="off"><datalist id="teamRoleList">${roleList}</datalist></div>
+    </div>
+    <div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn dark" onclick="createStaffInvitation()">Create invitation</button></div>`);
+}
+
+async function createStaffInvitation(){
+  const fullName=document.getElementById('tName')?.value.trim();
+  const email=document.getElementById('tEmail')?.value.trim().toLowerCase();
+  const phone=document.getElementById('tPhone')?.value.trim()||null;
+  const roleName=document.getElementById('tRole')?.value.trim();
+  if(!fullName||!email||!roleName){showToast('Name, email and role are required.');return;}
+  if(roleName.toLowerCase()==='ceo'){showToast('The CEO role is protected and cannot be assigned to a new team member.');return;}
+
+  try{
+    let roleId=null;
+    const existingRole=__adminRoles.find(r=>String(r.name||'').trim().toLowerCase()===roleName.toLowerCase() && r.is_active!==false);
+
+    if(existingRole){
+      roleId=Number(existingRole.id);
+    }else{
+      const {data:createdRole,error:roleError}=await window.DOWA_SUPABASE
+        .from('staff_roles')
+        .insert({
+          name:roleName,
+          description:`Custom role for ${roleName}`,
+          is_system_role:false,
+          is_active:true,
+          created_by_staff_id:currentAdminStaffId()
+        })
+        .select('id')
+        .single();
+      if(roleError) throw roleError;
+      roleId=Number(createdRole.id);
+
+      // Give a newly-created role only basic dashboard access by default.
+      // The CEO can change its permissions immediately from Roles & permissions.
+      const dashboardPermission=__adminPermissions.find(x=>x.staff_permissions?.permission_key==='dashboard.view');
+      if(dashboardPermission){
+        const {error:permissionError}=await window.DOWA_SUPABASE
+          .from('staff_role_permissions')
+          .insert({role_id:roleId,permission_id:Number(dashboardPermission.permission_id)});
+        if(permissionError) throw permissionError;
+      }
+
+      await logStaffActivity('role.created','staff_role',roleId,`Created custom role "${roleName}" while inviting "${fullName}"`,{role_name:roleName});
+    }
+
+    const token=crypto.randomUUID();
+    const expiresAt=new Date(Date.now()+1000*60*60*72).toISOString();
+    const {data,error}=await window.DOWA_SUPABASE.from('staff_invitations').insert({
+      email,full_name:fullName,phone,role_id:roleId,invited_by_staff_id:currentAdminStaffId(),
+      invitation_token:token,status:'pending',expires_at:expiresAt
+    }).select('id').single();
+    if(error) throw error;
+
+    await logStaffActivity('staff.invitation_created','staff_invitation',data.id,`Created team invitation for "${fullName}"`,{email,role_id:roleId,role_name:roleName});
+    closeModal();
+    await loadAdminTeam();
+    showToast(`Invitation created for ${fullName} as ${roleName}.`);
+  }catch(error){
+    console.error('Invitation creation failed:',error);
+    showToast(error?.message||'Unable to create invitation.');
+  }
+}
+
 function openTaskModal(){openModal(`<h2>Create task</h2><p>Assign a task to a team member.</p><div class="form-grid"><div class="field full"><label>Task</label><input id="taskTitle" placeholder="e.g. Follow up with Jane Doe"></div><div class="field"><label>Assignee</label><select id="taskAssignee"><option>Adam</option><option>Sarah</option><option>David</option><option>Michael</option></select></div><div class="field"><label>Priority</label><select id="taskPriority"><option>Normal</option><option>High</option><option>Urgent</option></select></div><div class="field full"><label>Notes</label><textarea id="taskNotes"></textarea></div></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn dark" onclick="saveTask()">Create task</button></div>`)}
 function saveTask(){const t=document.getElementById('taskTitle').value.trim();if(!t){showToast('Please enter a task.');return}closeModal();showToast('Task created and assigned.')} 
 function openSupportModal(customer,enquiry,assigned,status){openModal(`<h2>${customer}</h2><p>${enquiry}</p><div class="field"><label>Assign to</label><select id="sAssign"><option ${assigned==='Adam'?'selected':''}>Adam</option><option ${assigned==='Sarah'?'selected':''}>Sarah</option><option ${assigned==='Michael'?'selected':''}>Michael</option><option ${assigned==='Unassigned'?'selected':''}>Unassigned</option></select></div><div class="field"><label>Status</label><select id="sStatus"><option ${status==='Open'?'selected':''}>Open</option><option ${status==='Waiting'?'selected':''}>Waiting</option><option>Resolved</option></select></div><div class="field"><label>Reply</label><textarea id="sReply" placeholder="Write a reply to the customer..."></textarea></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button><button class="btn dark" onclick="saveSupport()">Save & reply</button></div>`)}
 function saveSupport(){closeModal();showToast('Support conversation updated.')} 
 function openOrderModal(id){openModal(`<h2>Order ${id}</h2><p>Demo order detail</p><div class="panel" style="padding:15px"><b>Customer:</b> ${id==='DOWA-10492'?'Jane Doe':'John Ade'}<br><br><b>Product:</b> ${id==='DOWA-10492'?'L-Shape Cloud Sofa':'Ayo 3-Seater Sofa'}<br><br><b>Delivery:</b> Lagos<br><br><b>Payment:</b> Paid</div><div class="field"><label>Order status</label><select id="oStatus"><option>Processing</option><option>Confirmed</option><option>In Production</option><option>Out for delivery</option><option>Delivered</option></select></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button><button class="btn dark" onclick="closeModal();showToast('Order status updated.')">Save status</button></div>`)}
-function openStaffAction(name,role){openModal(`<h2>${name}</h2><p>${role}</p><div class="field"><label>Role</label><select id="roleChange"><option ${role==='Customer Service'?'selected':''}>Customer Service</option><option ${role==='Inventory Manager'?'selected':''}>Inventory Manager</option><option ${role==='Order Manager'?'selected':''}>Order Manager</option><option>Support Manager</option></select></div><div class="field"><label>Account status</label><select><option>Active</option><option>Suspended</option></select></div><div class="modal-actions"><button class="btn danger" onclick="closeModal();showToast('${name} account suspended in demo.')">Suspend</button><button class="btn dark" onclick="closeModal();showToast('${name} permissions updated.')">Save permissions</button></div>`)}
-function filterCustomers(q){const rows=document.querySelectorAll('#customers tbody tr');q=q.toLowerCase();rows.forEach(r=>r.style.display=r.textContent.toLowerCase().includes(q)?'':'none')}
 function exportReport(){downloadCSV('dowa-september-report.csv','Metric,Value\nVisitors,4820\nEnquiries,246\nOrders,72\nCustomers,386\nRevenue,28400000');}
 function exportPayments(){downloadCSV('dowa-payments.csv','Reference,Order,Customer,Amount,Status\nPSK-90218,DOWA-10492,Jane Doe,850000,Paid\nPSK-90217,DOWA-10491,John Ade,490000,Pending');}
 function downloadCSV(name,text){const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(text);a.download=name;a.click();showToast('Export downloaded.')} 
@@ -1144,4 +2077,55 @@ function exportAcquisition(){downloadCSV('dowa-customer-acquisition.csv','Source
 function applyRole(role,overview=false){window.__role=role;window.__overview=overview;const labels={CEO:'CEO · Super Admin','Customer Service':'Customer Service','Inventory Manager':'Inventory Manager','Order Manager':'Order Manager','Support Manager':'Support Manager'};document.querySelector('.brand small').textContent=labels[role]||role;document.querySelector('.user small').textContent=labels[role]||role;const all=document.querySelectorAll('.nav button');all.forEach(b=>b.style.display='block');const hide=['team','analytics','payments','reviews','settings','acquisition'];if(role!=='CEO')hide.forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display=overview?'block':'none'});if(role==='Customer Service'){['products','payments'].forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display='none'})}if(role==='Inventory Manager'){['support','customers','payments','reviews'].forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display='none'})}if(role==='Order Manager'){['products','support','team','analytics','payments','reviews','settings'].forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display='none'})}if(role==='Support Manager'){['products','payments','reviews'].forEach(id=>{const b=[...all].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));if(b)b.style.display='none'})}const dash=[...all].find(x=>x.getAttribute('onclick')?.includes("'dashboard'"));if(role!=='CEO'&&!overview){if(dash)dash.style.display='none';showSection('tasks')}else{if(dash)dash.style.display='block';showSection(role==='CEO'?'dashboard':'tasks')}}
 async function adminLogout(){await window.DOWA_SUPABASE.auth.signOut();location.reload();}
 function openRoleSwitcher(){openModal(`<h2>Preview staff access</h2><p>The CEO can decide whether a staff member gets company overview access. Staff without that permission open directly into their role workspace.</p><div class="field"><label>Role</label><select id="previewRole"><option>CEO</option><option>Customer Service</option><option>Inventory Manager</option><option>Order Manager</option><option>Support Manager</option></select></div><div class="field"><label>Company overview</label><select id="previewOverview"><option value="no">No — staff workspace only</option><option value="yes">Yes — CEO granted access</option></select></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn dark" onclick="applyRole(document.getElementById('previewRole').value,document.getElementById('previewOverview').value==='yes');closeModal();showToast('Role preview applied.')">Preview role</button></div>`)}
+
+
+// Live team invitation flow: sends a real Supabase Auth invitation through the
+// secure Edge Function instead of only creating a database row.
+async function createStaffInvitation(){
+  const fullName=document.getElementById('tName')?.value.trim();
+  const email=document.getElementById('tEmail')?.value.trim().toLowerCase();
+  const phone=document.getElementById('tPhone')?.value.trim()||null;
+  const roleName=document.getElementById('tRole')?.value.trim();
+
+  if(!fullName||!email||!roleName){
+    showToast('Name, email and role are required.');
+    return;
+  }
+
+  const button=[...document.querySelectorAll('.modal-actions button')].find(b=>b.textContent.includes('Create invitation'));
+  if(button){button.disabled=true;button.textContent='Sending…';}
+
+  try{
+    const {data,error}=await window.DOWA_SUPABASE.functions.invoke('invite-team-member',{
+      body:{
+        full_name:fullName,
+        email,
+        phone,
+        role_name:roleName
+      }
+    });
+
+    if(error){
+      let message=error.message||'Unable to send invitation.';
+      try{
+        const context=error.context;
+        if(context && typeof context.json==='function'){
+          const payload=await context.json();
+          if(payload?.error) message=payload.error;
+        }
+      }catch(_e){}
+      throw new Error(message);
+    }
+
+    if(data?.error) throw new Error(data.error);
+
+    closeModal();
+    await loadAdminTeam();
+    showToast(`Invitation sent to ${email}.`);
+  }catch(error){
+    console.error('Live invitation failed:',error);
+    showToast(error?.message||'Unable to send invitation.');
+    if(button){button.disabled=false;button.textContent='Create invitation';}
+  }
+}
 </script></body></html>
